@@ -1,8 +1,8 @@
 {
   "sourceCommit": "0a41db3f340320a12195b083ef5aa273d3911bf9",
   "files": {
-    "about.html": "8eb307c466f0d313f7fac85352de311247b9396a08cf2a38a1a6f95114fbcefc",
-    "publications.html": "2409a1ab9dbf7ea0e4f77c110af69c6b1fe9dda170b2500abaf7ed968a096bb4",
+    "about.html": "65467481e8ac9acd0d98ebac6b574e01780b65c0f2ceaf456a3f4da7332987c4",
+    "publications.html": "1b429a6b9b3337547b38d7a276b8c7ef371290d7eb8e29838632be0077b3e177",
     "cv.html": "8df3d23abfa8be456afd9d8160581abbdeebdb0105680648671a146bf20dbb46",
     "assets/Zhang_Xuechu_CV.pdf": "1ce6560046e91627956e688368745a2fdefb9ac7d8febce93a61ac55dc699f67",
     "assets/site.js": "2ddd0877be5bce3dd067bb6814395668c323703dc2196d6b3647825cd7daa06c"
@@ -21,6 +21,17 @@
         "publications.html"
       ],
       "reason": "User requested a shared-reality manuscript entry, Beyond Research text, supplied photographs, and pink accents."
+    },
+    {
+      "date": "2026-10-10",
+      "parentCommit": "df4c351a17f91f6a1889cff44881ab859360c234",
+      "files": [
+        "index.html",
+        "research.html",
+        "publications.html",
+        "about.html"
+      ],
+      "reason": "User requested pink names and key subheadings across four pages and the supplied tiger artwork in Home whitespace."
     }
   ]
 }
