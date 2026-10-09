@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 485" role="img" aria-labelledby="title desc">
+<title id="title">Gaming disorder: evidence-synthesis overview</title><desc id="desc">Approximately 400 screened meta-analyses, 69 eligible meta-analyses, and three extraction domains. Average does not mean universal, and association does not establish mechanism. No pooled effects are encoded.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="#333" stroke-width="1.4"/></marker></defs>
+<rect width="920" height="485" fill="#fafaf8"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#171717">
+<text x="36" y="40" font-size="17" text-anchor="start" font-weight="400" fill="#666">EVIDENCE SYNTHESIS</text>
+<text x="175" y="137" font-size="61" text-anchor="middle" font-weight="400" fill="#171717">~400</text>
+<text x="175" y="177" font-size="23" text-anchor="middle" font-weight="400" fill="#555">meta-analyses</text>
+<text x="175" y="209" font-size="23" text-anchor="middle" font-weight="400" fill="#555">screened</text>
+<path d="M302 141 L367 141" stroke="#555" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<text x="488" y="137" font-size="61" text-anchor="middle" font-weight="400" fill="#171717">69</text>
+<text x="488" y="177" font-size="23" text-anchor="middle" font-weight="400" fill="#555">eligible</text>
+<text x="488" y="209" font-size="23" text-anchor="middle" font-weight="400" fill="#555">meta-analyses</text>
+<path d="M612 141 L678 141" stroke="#555" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<text x="782" y="122" font-size="28" text-anchor="middle" font-weight="400" fill="#171717">Extract &amp;</text>
+<text x="782" y="159" font-size="28" text-anchor="middle" font-weight="400" fill="#171717">interpret</text>
+<path d="M36 256 H884" stroke="#ccc"/>
+<rect x="36" y="280" width="260" height="78" fill="#fff" stroke="#b7b7b1" stroke-width="1.4"/>
+<text x="166.0" y="327.16" font-size="24" text-anchor="middle" font-weight="400" fill="#171717">Prevalence</text>
+<rect x="329" y="280" width="260" height="78" fill="#fff" stroke="#b7b7b1" stroke-width="1.4"/>
+<text x="459.0" y="310.66" font-size="24" text-anchor="middle" font-weight="400" fill="#171717">Psychosocial</text>
+<text x="459.0" y="343.66" font-size="24" text-anchor="middle" font-weight="400" fill="#171717">correlates</text>
+<rect x="622" y="280" width="260" height="78" fill="#fff" stroke="#b7b7b1" stroke-width="1.4"/>
+<text x="752.0" y="310.66" font-size="24" text-anchor="middle" font-weight="400" fill="#171717">Intervention</text>
+<text x="752.0" y="343.66" font-size="24" text-anchor="middle" font-weight="400" fill="#171717">outcomes</text>
+<text x="36" y="410" font-size="29" text-anchor="start" font-weight="400" fill="#171717">Average ≠ Universal</text>
+<text x="492" y="410" font-size="29" text-anchor="start" font-weight="400" fill="#171717">Association ≠ Mechanism</text>
+<text x="36" y="448" font-size="19" text-anchor="start" font-weight="400" fill="#555">Populations · Measures · Contexts</text>
+<text x="492" y="448" font-size="19" text-anchor="start" font-weight="400" fill="#555">Design · Temporal order · Explanation</text>
+</g></svg>

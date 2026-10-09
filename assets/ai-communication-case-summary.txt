@@ -1,0 +1,42 @@
+AI-Assisted Interpersonal Communication
+University of Southern California
+Analysis ongoing · Manuscript in preparation
+
+Portfolio case summary; not a full manuscript.
+
+Research Question
+When does AI assistance become learning—and when does it become substitution?
+
+Why It Matters
+In conflict, apology, and difficult self-expression, AI can help people decide what to say. Whether that support also develops their own judgment and communicative agency is a separate question.
+
+Study at a Glance
+Two pilot studies (n = 55; n = 45) and a main study (n = 222) examine AI support in conflict, apology, emotional uncertainty, and difficult self-expression. The study sequence includes a pre-survey, chatbot interaction, and post-survey.
+
+What I Built or Contributed
+Conversational coding frameworks, an online guide, and a follow-up feedback survey; mixed-methods analyses are ongoing.
+
+Methods & Analysis
+I combine theory-driven coding of conversational and interview data with mixed-effects analyses of pre–post measures. Reading the interaction alongside the scores helps distinguish what the system does from how participants experience its assistance.
+
+Key Findings / Current Evidence
+After AI assistance, participants reported greater perceived sincerity and willingness to use AI support, alongside lower ownership and perspective-taking. Sincerity and ownership can move in different directions.
+
+Interpretation
+These preliminary patterns do not establish improved independent competence, lasting dependence, or a causal loss of agency.
+
+What This Made Me Ask
+I began to separate supported performance from independent capability. A more satisfactory expression is not the same outcome as a person becoming better able to interpret and respond to the next difficult situation.
+
+Next Research Question
+Test transfer directly: after AI support is withdrawn, do people use their own judgment, consider another person's perspective, and communicate differently in a subsequent human interaction? Repeated assessment could distinguish immediate assistance from learning over time.
+
+Research Artifacts
+AI-Assisted Interpersonal Communication and the Trade-Off Between Sincerity and Ownership. Manuscript in preparation for the ICA Annual Conference; an online guide and follow-up feedback survey were also developed.
+
+My Role
+- Lead the theoretical framing and mixed-methods analysis.
+- Develop coding frameworks for prompting strategies, emotional validation, interpersonal planning, and changes in communication strategy.
+- Integrate chatbot conversations, interviews, open-ended responses, and pre–post measures; translate the work into an online guide and feedback survey.
+
+The study design and data collection are part of the collaborative project with Professor Hwang. The contributions listed here describe my own work.

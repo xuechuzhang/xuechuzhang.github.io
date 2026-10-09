@@ -1,0 +1,42 @@
+Gaming Disorder: What Does an Average Effect Hide?
+CARE Lab, University of Hong Kong
+Manuscript under review
+
+Portfolio case summary; not a full manuscript.
+
+Research Question
+What does meta-analytic evidence tell us about gaming disorder, and how does its interpretation depend on populations, measures, and study designs?
+
+Why It Matters
+Digital behavior is often described through a single average effect. Evidence synthesis makes it possible to examine the consistency of that evidence and the differences hidden within pooled estimates.
+
+Study at a Glance
+The unit of synthesis is the meta-analysis. The review covers gaming disorder prevalence, psychosocial correlates, and intervention outcomes across 69 eligible meta-analyses.
+
+What I Built or Contributed
+Contributions to structured review-level coding and effect-size extraction, and a co-authored umbrella-review manuscript.
+
+Methods & Analysis
+Systematic screening, effect-size extraction, and methodological coding support comparisons across review-level evidence. I worked with differences in populations, instruments, and designs rather than treating all estimates as interchangeable.
+
+Key Findings / Current Evidence
+The completed synthesis brings together 69 eligible meta-analyses across three outcome domains. This case study presents the review's scope and my methodological contributions.
+
+Interpretation
+Pooled numerical estimates are not reproduced in this portfolio. The manuscript is under review at Nature Human Behaviour.
+
+What This Made Me Ask
+This work made me more attentive to the distance between an association and an explanation. For my AI research, I now ask whose experience changes, under which conditions, and what a study design can actually establish.
+
+Next Research Question
+Bring the same attention to heterogeneity into human–AI research: distinguish populations, contexts, and measures, and use temporal or experimental evidence to test explanations that correlations alone cannot resolve.
+
+Research Artifacts
+Gaming disorder prevalence, psychosocial correlates, and intervention outcomes: an umbrella review of meta-analyses. Co-authored manuscript under review at Nature Human Behaviour.
+
+My Role
+- Screen, synthesize, and code approximately 400 meta-analyses; contribute to the synthesis of 69 eligible meta-analyses.
+- Extract effect sizes, study characteristics, methodological features, and intervention outcomes.
+- Contribute to theoretical interpretation of prevalence patterns, psychosocial correlates, and intervention effects; co-author the manuscript.
+
+The umbrella review is a team project led by Professor Cheng. The 69 eligible meta-analyses describe the review as a whole, not a separate dataset that I alone produced.

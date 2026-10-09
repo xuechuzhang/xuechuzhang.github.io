@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" role="img" aria-labelledby="title desc">
+<title id="title">Research project overview</title><desc id="desc">A concise schematic of the project&#x27;s documented focus.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="#333" stroke-width="1.4"/></marker></defs>
+<rect width="720" height="250" fill="#fafaf8"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#171717">
+<text x="30" y="37" font-size="15" text-anchor="start" font-weight="400" fill="#666">EVIDENCE SYNTHESIS</text>
+<text x="106" y="118" font-size="58" text-anchor="start" font-weight="400" fill="#171717">~400</text>
+<path d="M337 100 L403 100" stroke="#555" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<text x="470" y="118" font-size="58" text-anchor="start" font-weight="400" fill="#171717">69</text>
+<text x="100" y="164" font-size="23" text-anchor="start" font-weight="400" fill="#555">screened</text>
+<text x="456" y="164" font-size="23" text-anchor="start" font-weight="400" fill="#555">eligible meta-analyses</text>
+<text x="30" y="215" font-size="23" text-anchor="start" font-weight="400" fill="#555">Prevalence · Correlates · Interventions</text>
+</g></svg>

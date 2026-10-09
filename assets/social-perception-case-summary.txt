@@ -1,0 +1,42 @@
+Inferring Intent from Incomplete Signals
+Social Perception Lab, University of Glasgow
+Research assistantship · 2024–2025
+
+Portfolio case summary; not a full manuscript.
+
+Research Question
+How do people use facial, vocal, and multimodal cues to infer sincerity and moral intent, and how can those judgments be measured carefully across cultures?
+
+Why It Matters
+Sincerity and intention are inferred rather than directly observed. Studying the signals and measurements behind those inferences provides a foundation for asking what changes when AI helps generate or interpret social expression.
+
+Study at a Glance
+The lab work concerns cross-cultural social judgments using facial, vocal, and multimodal information. My analysis work drew on behavioral and text-derived measures, including reaction time, facial EMG, and prosodic features.
+
+What I Built or Contributed
+Contributions to reproducible R analysis scripts, multimodal data workflows, preregistration materials, and conference preparation.
+
+Methods & Analysis
+Reproducible R analysis connects observable features and behavioral responses to latent social constructs. Preregistration and analysis documentation help make the reasoning behind those connections explicit.
+
+Key Findings / Current Evidence
+The contribution presented here is the integration of multimodal indicators and research materials. This overview does not report a new study-level effect or a publication led by me.
+
+Interpretation
+The schematic summarizes the analytical logic of the work; it is not a diagram of one specific experimental protocol.
+
+What This Made Me Ask
+I learned to translate social constructs into measurable indicators without assuming that one signal captures the whole construct. This remains central to how I study sincerity, ownership, and judgment in AI-assisted communication.
+
+Next Research Question
+Examine how AI-generated or AI-interpreted expression changes the cues people use to judge sincerity, intention, and authorship, and whether those judgments differ across contexts and cultures.
+
+Research Artifacts
+Contributions to reproducible analysis workflows, preregistration materials, and conference preparation within the lab.
+
+My Role
+- Support research on facial expression, vocal prosody, and multimodal signals of sincerity and moral intent.
+- Integrate reaction-time, facial EMG, prosodic, and NLP-derived text features in reproducible R workflows.
+- Contribute to preregistration materials, analysis scripts, and preparation for the Society for Affective Science conference in 2025.
+
+These contributions were made as a research assistant in Professor Jack's lab. I distinguish this role from independently designing or leading the lab's studies.

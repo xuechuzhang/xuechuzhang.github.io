@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+<title id="title">AI-assisted interpersonal communication: study workflow</title><desc id="desc">Two pilots and a main study follow a pre-survey, chatbot interaction, and post-survey sequence. Conversational and survey evidence inform mixed-methods interpretation.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="#333" stroke-width="1.4"/></marker></defs>
+<rect width="920" height="420" fill="#fafaf8"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#171717">
+<text x="36" y="40" font-size="17" text-anchor="start" font-weight="400" fill="#666">STUDY DESIGN</text>
+<rect x="36" y="62" width="260" height="88" fill="#fff" stroke="#b7b7b1" stroke-width="1.4"/>
+<text x="166.0" y="97.66" font-size="24" text-anchor="middle" font-weight="400" fill="#171717">Pilot 1</text>
+<text x="166.0" y="130.66" font-size="24" text-anchor="middle" font-weight="400" fill="#171717">n = 55</text>
+<rect x="329" y="62" width="260" height="88" fill="#fff" stroke="#b7b7b1" stroke-width="1.4"/>
+<text x="459.0" y="97.66" font-size="24" text-anchor="middle" font-weight="400" fill="#171717">Pilot 2</text>
+<text x="459.0" y="130.66" font-size="24" text-anchor="middle" font-weight="400" fill="#171717">n = 45</text>
+<rect x="622" y="62" width="260" height="88" fill="#fff" stroke="#b7b7b1" stroke-width="1.4"/>
+<text x="752.0" y="97.66" font-size="24" text-anchor="middle" font-weight="400" fill="#171717">Main study</text>
+<text x="752.0" y="130.66" font-size="24" text-anchor="middle" font-weight="400" fill="#171717">n = 222</text>
+<rect x="36" y="194" width="260" height="88" fill="#fff" stroke="#b7b7b1" stroke-width="1.4"/>
+<text x="166.0" y="246.5" font-size="25" text-anchor="middle" font-weight="400" fill="#171717">Pre-survey</text>
+<rect x="329" y="194" width="260" height="88" fill="#fff" stroke="#b7b7b1" stroke-width="1.4"/>
+<text x="459.0" y="229.5" font-size="25" text-anchor="middle" font-weight="400" fill="#171717">Chatbot</text>
+<text x="459.0" y="263.5" font-size="25" text-anchor="middle" font-weight="400" fill="#171717">interaction</text>
+<rect x="622" y="194" width="260" height="88" fill="#fff" stroke="#b7b7b1" stroke-width="1.4"/>
+<text x="752.0" y="246.5" font-size="25" text-anchor="middle" font-weight="400" fill="#171717">Post-survey</text>
+<path d="M300 238 L323 238" stroke="#555" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M593 238 L616 238" stroke="#555" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<text x="460" y="177" font-size="18" text-anchor="middle" font-weight="400" fill="#666">Pre–post sequence</text>
+<text x="36" y="327" font-size="22" text-anchor="start" font-weight="400" fill="#171717">Conversational &amp; interview data</text>
+<text x="36" y="359" font-size="22" text-anchor="start" font-weight="400" fill="#171717">Pre–post measures</text>
+<path d="M401 343 L485 343" stroke="#555" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<rect x="505" y="310" width="377" height="71" fill="#fff" stroke="#b7b7b1" stroke-width="1.4"/>
+<text x="693.5" y="353.32" font-size="23" text-anchor="middle" font-weight="400" fill="#171717">Mixed-methods interpretation</text>
+</g></svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 575" role="img" aria-labelledby="title desc">
+<title id="title">From private AI relationships to shared social reality</title><desc id="desc">A proposed protocol: three people have separate personalized interactions with the same continuing virtual character, then meet as humans without the AI. Trust, cooperation, cohesion, and group norms are questions rather than observed outcomes.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="#333" stroke-width="1.4"/></marker></defs>
+<rect width="920" height="575" fill="#fafaf8"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#171717">
+<text x="36" y="40" font-size="17" text-anchor="start" font-weight="400" fill="#666">PROPOSED PROTOCOL · NO RESULTS YET</text>
+<rect x="36" y="71" width="260" height="59" fill="#fff" stroke="#b7b7b1" stroke-width="1.4"/>
+<text x="166.0" y="109.0" font-size="25" text-anchor="middle" font-weight="400" fill="#171717">Person A</text>
+<path d="M166 137 L166 180" stroke="#555" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<rect x="36" y="194" width="260" height="79" fill="#fff" stroke="#b7b7b1" stroke-width="1.4"/>
+<text x="166.0" y="225.48" font-size="22" text-anchor="middle" font-weight="400" fill="#171717">Virtual character X</text>
+<text x="166.0" y="256.48" font-size="22" text-anchor="middle" font-weight="400" fill="#171717">Private interaction</text>
+<rect x="329" y="71" width="260" height="59" fill="#fff" stroke="#b7b7b1" stroke-width="1.4"/>
+<text x="459.0" y="109.0" font-size="25" text-anchor="middle" font-weight="400" fill="#171717">Person B</text>
+<path d="M459 137 L459 180" stroke="#555" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<rect x="329" y="194" width="260" height="79" fill="#fff" stroke="#b7b7b1" stroke-width="1.4"/>
+<text x="459.0" y="225.48" font-size="22" text-anchor="middle" font-weight="400" fill="#171717">Virtual character X</text>
+<text x="459.0" y="256.48" font-size="22" text-anchor="middle" font-weight="400" fill="#171717">Private interaction</text>
+<rect x="622" y="71" width="260" height="59" fill="#fff" stroke="#b7b7b1" stroke-width="1.4"/>
+<text x="752.0" y="109.0" font-size="25" text-anchor="middle" font-weight="400" fill="#171717">Person C</text>
+<path d="M752 137 L752 180" stroke="#555" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<rect x="622" y="194" width="260" height="79" fill="#fff" stroke="#b7b7b1" stroke-width="1.4"/>
+<text x="752.0" y="225.48" font-size="22" text-anchor="middle" font-weight="400" fill="#171717">Virtual character X</text>
+<text x="752.0" y="256.48" font-size="22" text-anchor="middle" font-weight="400" fill="#171717">Private interaction</text>
+<text x="460" y="306" font-size="20" text-anchor="middle" font-weight="400" fill="#555">Same continuing character identity · Separate interaction histories</text>
+<path d="M166 324 V347 H753 V324 M460 347 V369" stroke="#777" fill="none"/>
+<rect x="158" y="383" width="604" height="68" fill="#fff" stroke="#b7b7b1" stroke-width="1.4" stroke-dasharray="6 5"/>
+<text x="460.0" y="408.98" font-size="22" text-anchor="middle" font-weight="400" fill="#171717">First human group meeting</text>
+<text x="460.0" y="439.98" font-size="22" text-anchor="middle" font-weight="400" fill="#171717">Immediately or seven days later · AI absent</text>
+<path d="M460 462 L460 486" stroke="#555" stroke-width="1.6" fill="none" marker-end="url(#arrow)" stroke-dasharray="6 5"/>
+<text x="460" y="523" font-size="25" text-anchor="middle" font-weight="400" fill="#171717">Trust · Cooperation · Cohesion · Group norms?</text>
+<text x="460" y="555" font-size="18" text-anchor="middle" font-weight="400" fill="#666">Possible human outcomes, not established effects</text>
+</g></svg>
