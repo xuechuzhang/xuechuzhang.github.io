@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:08.000
+01 / One continuing character, with separate page sessions
+
+2
+00:00:08.000 --> 00:00:17.000
+02 / Slot 1 chooses a plan; the response follows that choice
+
+3
+00:00:17.000 --> 00:00:26.000
+03 / Slot 2 chooses listening; no Slot 1 conversation is shared
+
+4
+00:00:26.000 --> 00:00:34.000
+04 / The character leaves before the human-only handoff
+
+5
+00:00:34.000 --> 00:00:42.000
+05 / Payoff calculator only: no connected people or payments

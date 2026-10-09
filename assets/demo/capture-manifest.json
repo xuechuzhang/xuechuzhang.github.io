@@ -1,0 +1,40 @@
+{
+  "capture_date": "2026-10-09",
+  "source": "Live GitHub Pages prototype, cloud Chrome browser",
+  "capture_type": "Real interface screenshots assembled into a narrated-by-caption walkthrough",
+  "continuous_recording": false,
+  "participants": 0,
+  "duration_seconds": 42.0,
+  "frames": [
+    {
+      "frame": "prototype01-1791582075643-01.jpg",
+      "seconds": 8,
+      "caption": "01 / One continuing character, with separate page sessions",
+      "sha256": "dc7a0305bbae3c649bb3def7393e172ab20451cab1191cf9ca9d62b7819cce1b"
+    },
+    {
+      "frame": "prototype01-1791582075643-02.jpg",
+      "seconds": 9,
+      "caption": "02 / Slot 1 chooses a plan; the response follows that choice",
+      "sha256": "27f513a7ee26bf6e3b67b000e04f36efb56f03300d810f902400bf70698eaeb3"
+    },
+    {
+      "frame": "prototype01-1791582075643-04.jpg",
+      "seconds": 9,
+      "caption": "03 / Slot 2 chooses listening; no Slot 1 conversation is shared",
+      "sha256": "96630b5af43d7b34349503f1d8c8e370ec3249bdc44de5645dc7d1453366b8d6"
+    },
+    {
+      "frame": "prototype01-1791582075643-05.jpg",
+      "seconds": 8,
+      "caption": "04 / The character leaves before the human-only handoff",
+      "sha256": "a5975433404296d11c7a2ccea8ff8c9c60c313ac5556d4a2a0cf7b82332f4564"
+    },
+    {
+      "frame": "prototype01-1791582075643-06.jpg",
+      "seconds": 8,
+      "caption": "05 / Payoff calculator only: no connected people or payments",
+      "sha256": "5b6ea8e94173be29401fcd46563cce7779def7bd58e82aa1ab8af9eb35d6bcf2"
+    }
+  ]
+}

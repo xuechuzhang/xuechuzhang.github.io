@@ -20,7 +20,7 @@ The website is buildless HTML/CSS/JavaScript, hosted by GitHub Pages from `main`
 | P1 | Implement scripted Prototype 01 | Same public identity can coexist with different private choices in separate page instances |
 | P1 | Document and test state/data boundaries | Tests cover conditions, independent states, transitions, delayed eligibility, export, and payoff |
 | P2 | Integrate Featured Build and technical case template | Live demo, architecture, code, and study-plan links resolve |
-| P2 | Capture a short walkthrough | Actual interface states; synthetic demo clearly identified |
+| P2 | Capture a short walkthrough | Actual interface states; scripted demo clearly identified |
 | P3 | Usability and manipulation pilot | Supervisor/ethics approval first; real feedback recorded as pilot evidence, never software evidence |
 | P4 | Research backend and study-ready interaction | Authenticated isolated sessions, approved storage/retention, scheduling, and human-group administration |
 | P5 | Preregistered experiment and replication | Adequately powered independent groups; no outcome claims before data |

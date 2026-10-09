@@ -24,6 +24,10 @@ Open `http://localhost:8000/prototype.html`. Use an HTTP server rather than open
 
 Public query parameters: `identity=shared|separate`, `delay=0|7`, `slot=1|2|3`, `rotation=0|1|2`. Parameters contain configuration only, not conversation data.
 
+## Interface walkthrough
+
+[Watch the 42-second captioned demo](../assets/demo/prototype01-walkthrough.mp4). It is assembled from actual live interface captures, not a continuous recording or a human study. See [capture provenance](../assets/demo/README.md).
+
 ## Test
 
 ```sh

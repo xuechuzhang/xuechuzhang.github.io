@@ -20,3 +20,11 @@ Nine pure-engine tests passed on the first run; JavaScript syntax checks passed.
 - Is free conversation necessary? Compare a richer script or other interaction approach before adding a model.
 - What infrastructure is needed for actual delayed groups? Resolve authentication, approved storage/scheduling, independent commitments and compensation before recruitment.
 - What is the strongest competing explanation? Select a relational or interpretation-boundary extension after the first study and independent replication.
+
+## Live verification and documentation update — 9 October 2026
+
+Observed independent same-character sessions, distinct own-choice responses, the immediate handoff, its public-only fields, and correct illustrative all-ten payoffs. These checks supported keeping the small script engine for the first feasibility build; they did not validate relational experience.
+
+The browser stopped further observation at the JSON-download check because of a credential-state restriction. A fresh runtime remained blocked. We documented the unverified UI paths rather than asserting a complete browser pass. No app defect was inferred from that tooling failure.
+
+A captioned 42-second sequence was made from five real interface captures. The site names it an interface walkthrough rather than a continuous recording. The next implementation pass should complete the missing UI checks, then assess the interaction's comprehension and relational credibility before adding free-form generation or research collection.
