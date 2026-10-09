@@ -25,6 +25,11 @@
 .brand,.hero h1,main h2,main h3,.eyebrow,.person-name,.site-footer p:first-child,.contact h2{color:var(--accent)}
 .home-page .hero{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:70px;align-items:center}
 .hero-copy{min-width:0}
+.hero-research-focus{margin-top:26px;max-width:780px}
+.hero-research-focus p{margin:0;font-size:clamp(18px,1.65vw,22px);line-height:1.5}
+.hero-research-focus p+p{margin-top:21px}
+.hero-research-focus strong{display:block;margin-bottom:4px;color:var(--accent);font-size:.9em;font-weight:600}
+.hero-research-focus span{display:block}
 .hero-art{width:100%;margin:0;align-self:center}
 .hero-art img{display:block;width:100%;height:auto;padding:8px;background:var(--rose-paper);border:1px solid var(--line)}
 .hero-art figcaption{margin-top:13px;font-size:11px;text-align:right;letter-spacing:.025em}

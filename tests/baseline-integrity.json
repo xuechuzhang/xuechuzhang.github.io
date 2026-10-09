@@ -1,7 +1,7 @@
 {
   "sourceCommit": "0a41db3f340320a12195b083ef5aa273d3911bf9",
   "files": {
-    "about.html": "1e7259e915ce01c46e5a72ac9cab0464eaed06c69d5b1b6260fdad7276327c65",
+    "about.html": "fee0fb0227ccd5b92bd885f02ed5b84090d795e52bd5237a38b2d219016e8455",
     "publications.html": "e583a2fdbdc06126907b1dcc8e6e89b6556477cf56fb1a0f98d696f2c5ba2399",
     "cv.html": "abe160db14398878e06ba9f17fd884ba6cfb272a1cc0172bc32ccb6cb6f805ac",
     "assets/Zhang_Xuechu_CV.pdf": "1ce6560046e91627956e688368745a2fdefb9ac7d8febce93a61ac55dc699f67",
@@ -43,6 +43,16 @@
         "assets/personal.css"
       ],
       "reason": "User requested removal of the About tiger background, pink CV headings and key content, and a replacement homepage research introduction. Research/Publications receive only the matching stylesheet version."
+    },
+    {
+      "date": "2026-10-10",
+      "parentCommit": "c5579e6f20fcf0fd1dd72b589b2d73cae8fb5eea",
+      "files": [
+        "index.html",
+        "about.html",
+        "assets/personal.css"
+      ],
+      "reason": "User requested two separate homepage research questions and a replacement About biography, including learning from Professor Mike Yao during the UIUC visit. Retained the existing photographs and Beyond Research section."
     }
   ]
 }
