@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="640" viewBox="0 0 980 640" role="img" aria-labelledby="title desc">
+<title id="title">Prototype 01: shared identity, private session state</title><desc id="desc">Public character configuration enters three independent browser page instances. Each holds its own choices, transcript and log, with no cross-session flow. A deterministic response engine reads only its own session. A public identity and scheduling handoff leads to a group-task preview. Future authenticated backend, scheduling and live groups are outside the implemented boundary.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10" fill="none" stroke="#365e67" stroke-width="1.4"/></marker></defs>
+<rect width="980" height="640" fill="#fafaf8"/>
+<g font-family="Arial,Helvetica,sans-serif" fill="#171717">
+<text x="34" y="38" font-size="11" letter-spacing="1.5" fill="#365e67">PROTOTYPE 01 / IMPLEMENTED BROWSER LOGIC</text>
+<text x="34" y="76" font-size="27">Shared identity is not shared memory.</text>
+<rect x="34" y="104" width="912" height="70" fill="white" stroke="#c9c9c2"/>
+<text x="53" y="131" font-size="16">Public configuration + character registry</text><text x="53" y="155" font-size="12" fill="#555">Shared / separate identity · 0 / 7-day eligibility · slots 1–3 · balanced name rotation</text>
+<g fill="none" stroke="#365e67" stroke-width="1.5" marker-end="url(#arrow)"><path d="M185 175V215"/><path d="M490 175V215"/><path d="M795 175V215"/></g>
+<g fill="white" stroke="#c9c9c2"><rect x="34" y="220" width="282" height="125"/><rect x="349" y="220" width="282" height="125"/><rect x="664" y="220" width="282" height="125"/></g>
+<g font-size="16"><text x="53" y="251">Page instance / slot 1</text><text x="368" y="251">Page instance / slot 2</text><text x="683" y="251">Page instance / slot 3</text></g>
+<g font-size="12" fill="#555"><text x="53" y="278">Own choices → scripted responses</text><text x="53" y="301">Private transcript + event log</text><text x="53" y="325">Memory only · local export</text><text x="368" y="278">Own choices → scripted responses</text><text x="368" y="301">Private transcript + event log</text><text x="368" y="325">Memory only · local export</text><text x="683" y="278">Own choices → scripted responses</text><text x="683" y="301">Private transcript + event log</text><text x="683" y="325">Memory only · local export</text></g>
+<text x="490" y="374" text-anchor="middle" font-size="12" fill="#365e67">No conversation or choice exchange between page instances</text>
+<g fill="none" stroke="#365e67" stroke-width="1.5" marker-end="url(#arrow)"><path d="M185 346V398"/><path d="M490 385V398"/><path d="M795 346V398"/></g>
+<rect x="34" y="404" width="912" height="75" fill="white" stroke="#c9c9c2"/>
+<text x="53" y="433" font-size="16">Public handoff → human-only task preview</text><text x="53" y="457" font-size="12" fill="#555">Identity + eligibility only · facilitator instructions + payoff calculator · no connected human group</text>
+<rect x="34" y="519" width="912" height="81" fill="none" stroke="#999" stroke-dasharray="5 5"/>
+<text x="53" y="548" font-size="14">NEXT VERSION / NOT IMPLEMENTED</text><text x="53" y="575" font-size="12" fill="#555">Authenticated study backend · approved storage · real seven-day scheduling · live groups · optional LLM adapter</text>
+<text x="34" y="624" font-size="10" fill="#666">Solid boxes: current code. Dashed box: proposed infrastructure. Software behavior does not establish psychological effects.</text>
+</g></svg>

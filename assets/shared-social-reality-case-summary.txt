@@ -1,42 +1,17 @@
-From Private AI Relationships to Shared Social Reality
-University of Glasgow
-Experimental protocol development · Pilot preparation
+FROM PRIVATE AI RELATIONSHIPS TO SHARED SOCIAL REALITY
 
-Portfolio case summary; not a full manuscript.
+Question: Can separate private relationships with one artificial social actor shape subsequent human cooperation and shared understanding?
 
-Research Question
-Can separate relationships with the same artificial social actor create a shared social reality—and change subsequent trust, cooperation, and group dynamics?
+Research role: Independent project lead with Dr. Chen Zhou at Glasgow, developing a temporal extension of the lab's existing paradigm.
 
-Why It Matters
-An artificial actor may become a common social reference even when people encounter it separately. Studying the later human meeting asks whether AI experience carries outward into human social life.
+Current build: Prototype 01, a working scripted browser MVP developed with Codex assistance during the portfolio upgrade. Not an earlier independent engineering project or a lab-approved study system.
 
-Study at a Glance
-The proposed design crosses shared versus separate virtual-character identities with an immediate versus seven-day-delayed first human meeting. Participants interact privately with the character beforehand; the AI is absent during the subsequent human group interaction.
+Implementation: Shared/separate character mapping; three turns of choice-based personalization; independent page-memory state; ordered events; local JSON export; public-metadata-only handoff; immediate/seven-day eligibility arithmetic and a labeled delayed-clock preview; illustrative public-goods payoff calculator.
 
-What I Built or Contributed
-An experimental framework and temporal-comparison pilot plan, both in development.
+Software evidence: Engine tests and verification report are included in the source repository. No recruited participants, usability findings, behavioral pilot, or confirmatory evidence exist for this implementation.
 
-Methods & Analysis
-The protocol pairs a behavioral cooperation task with reports of trust and shared understanding. Group-level analysis and a direct identity-by-delay comparison are planned. Sample size and procedures are being refined before the pilot.
+Proposed study: Independent three-person groups, shared/separate identity x immediate/seven-day first human meeting, AI absent during human interaction. Primary delayed contrast C-D; direct identity-by-delay comparison (C-D)-(A-B). Actual scheduling, private commitments, compensation, power planning, ethics and preregistration remain to be completed.
 
-Key Findings / Current Evidence
-The current output is an experimental framework and pilot plan. The shared-character effect and its temporal persistence are questions for the planned experiment.
+Limits: No LLM, authentication, research backend, saved follow-up, or live human-group discussion. Scripted identity continuity does not establish a felt relationship or a social transfer effect.
 
-Interpretation
-No experimental results or implemented virtual-agent prototype are claimed in this case study.
-
-What This Made Me Ask
-Protocol development made me distinguish a shared character from a shared conversation, and a delayed first meeting from following up a group that has already met.
-
-Next Research Question
-If a common artificial character changes how people first meet, is that difference still detectable seven days later? What separates shared understanding from a common label or an expectation of similarity—and how might group norms emerge?
-
-Research Artifacts
-Experimental framework and pilot procedures in development. The schematic is an explanatory artifact; it does not depict an implemented system or observed results.
-
-My Role
-- Lead an independent project with Dr. Chen Zhou on shared virtual humans and subsequent human group dynamics.
-- Develop a temporal extension comparing immediate and seven-day-delayed first human meetings using independent groups.
-- Synthesize shared-reality and human–AI research to refine hypotheses, experimental comparisons, and pilot procedures.
-
-Building on the lab's existing paradigm, I am developing the temporal extension with Dr. Zhou. The work described here is my independent project.
+Next: Review/pilot comprehension and relational credibility, then develop approved study infrastructure and the most informative behavioral test.

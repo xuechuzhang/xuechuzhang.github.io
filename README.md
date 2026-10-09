@@ -1,31 +1,45 @@
-# Xuechu Zhang — GitHub Pages website
+# Xuechu Zhang — Research + Build + Study
 
-This package contains the existing five-page research website, prepared for GitHub Pages. It requires no installation or build step.
+Academic portfolio at [xuechuzhang.github.io](https://xuechuzhang.github.io/).
 
-## 发布步骤
+I study how artificial social actors reshape human judgment, relationships, and communities. This repository preserves the empirical portfolio and adds a small, inspectable research prototype.
 
-1. 在自己的浏览器登录 GitHub。查看个人头像菜单中的用户名；仓库名使用的是用户名，不是邮箱。
-2. 新建公开仓库，名称必须是 `YOUR-USERNAME.github.io`，将 `YOUR-USERNAME` 换成实际 GitHub 用户名。
-3. 解压文件包，将其中所有文件和 `assets` 文件夹上传到仓库的根目录。根目录应能直接看到 `index.html`；不要只上传 ZIP，也不要再包在外层文件夹中。
-4. 将这些文件提交到 `main` 分支。
-5. 打开仓库的 **Settings → Pages → Build and deployment**。
-6. Source 选择 **Deploy from a branch**，Branch 选择 **main**，目录选择 **/(root)**，然后点击 **Save**。
-7. 等待 GitHub 的部署完成。最终网址由 Pages 页面给出，形式是 `https://YOUR-USERNAME.github.io/`。
+## Start here
 
-`.nojekyll` 标记表示这是已准备好的静态文件。如果使用 GitHub 网页上传时未显示这个文件，现有页面仍采用普通 HTML/CSS/JS；通过 Git 上传可以完整保留该标记。
+- [Working Prototype 01](https://xuechuzhang.github.io/prototype.html): stable character identity, separate private choices, scripted responses, event export, and a group-phase preview.
+- [Build + Study case](https://xuechuzhang.github.io/research.html#shared-social-reality)
+- [Prototype README](prototype/README.md)
+- [Technical specification](docs/prototype-spec.md) · [Architecture](assets/research/prototype-architecture.svg)
+- [Draft pilot protocol](docs/pilot-protocol.md)
+- [Verification report](docs/verification.md) · [Iteration decisions](docs/iteration-log.md)
+- [Audit, priorities, and file plan](docs/upgrade-plan.md)
 
-## Pages
+## Run locally
 
-- Home: `index.html`
-- Research: `research.html`
-- Publications: `publications.html`
-- About: `about.html`
-- CV: `cv.html`
+No framework, dependencies, credentials, or build step is required:
 
-The publication status labels and research-stage labels remain unchanged. The CV PDF and the research diagrams are included. This package contains only the website's linked static files; it does not contain hosting credentials, account credentials, repository history, or participant-level data.
+```sh
+python3 -m http.server 8000
+```
 
-## Updating the website
+Open `http://localhost:8000/` or `http://localhost:8000/prototype.html`. Use a local server for the ES modules instead of double-clicking the HTML file.
 
-After Pages is enabled, a new commit to `main` republishes the static website. This package is a snapshot of the current website, not a live connection to its original hosting service. Updates should be copied to the GitHub repository as well.
+```sh
+node --test tests/prototype.test.mjs
+node --check prototype/app.mjs
+python3 tests/check-site.py
+```
 
-Official setup reference: [GitHub Pages publishing source](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+The static integrity check pins protected empirical text and files to the verified original content; it works without repository history. These are software/content checks, not participant or psychological evidence.
+
+## Evidence and attribution
+
+Prototype 01 is implemented as a **scripted software demonstration**, not an LLM or a study deployment. No recruited participant pilot, human-group outcome, or actual seven-day follow-up is claimed. Private choices and transcripts stay in the current page's memory; an explicit JSON download saves a local file. No collection endpoint or persistent storage is used by the prototype.
+
+The research question and temporal extension are from Xuechu's described work with Dr. Chen Zhou, building on the lab's existing paradigm. The new prototype was developed with Codex assistance during the portfolio upgrade. It is not described as prior independent engineering work or an approved lab system. Existing research samples, preliminary findings, publication statuses, personal contributions, and CV have been preserved.
+
+## Pages and deployment
+
+Main navigation remains Home, Research, Publications, About, and CV. `prototype.html` is a linked project subpage, not a sixth main-navigation item. The website is static HTML/CSS/JavaScript; `.nojekyll` prevents unwanted Jekyll processing. GitHub Pages publishes from `main` at `/(root)`.
+
+The repository is the source for the GitHub Pages website. The earlier ChatGPT-hosted website is a separate snapshot and is not automatically updated by commits here.

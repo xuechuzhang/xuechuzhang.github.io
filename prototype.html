@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shared Character · Prototype 01 | Xuechu Zhang</title>
+<meta name="description" content="A working, scripted browser prototype testing shared character identity and private session boundaries. Software demonstration; not participant research.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="prototype/prototype.css">
+<script defer src="assets/site.js"></script><script type="module" src="prototype/app.mjs"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="nav-wrap shell">
+<a class="brand" href="index.html" aria-label="Xuechu Zhang home">Xuechu Zhang<small>Human–AI Interaction &amp; Social Dynamics</small></a>
+<button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+<nav id="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="research.html">Research</a><a href="publications.html">Publications</a><a href="about.html">About</a><a href="cv.html">CV</a></nav>
+</div></header>
+<main id="main" class="shell prototype-main">
+<div class="prototype-heading"><div><p class="eyebrow">Featured Build / Prototype 01</p><h1>A shared character.<br>Separate conversations.</h1></div><p>Test a small technical premise: keep a character's identity consistent while its responses depend only on each visitor's own choices.</p></div>
+<p class="demo-notice"><strong>Scripted software demonstration.</strong> No LLM, recruited participants, or behavioral findings. No research data are uploaded. Choices remain in this page's memory until reset, reload, or departure.</p>
+<noscript><p class="demo-notice">This prototype requires JavaScript. The <a href="https://github.com/xuechuzhang/xuechuzhang.github.io/blob/main/prototype/README.md">README</a> explains the interaction and its limitations.</p></noscript>
+<div class="prototype-layout">
+<aside class="config-panel" aria-labelledby="config-title">
+<h2 id="config-title">Configure a walkthrough</h2><p class="compact">These settings are visible to the reviewer. This public demo is not a blinded participant interface.</p>
+<form id="config-form">
+<label for="identity">Character identity</label><select id="identity" name="identity"><option value="shared">Shared across all three slots</option><option value="separate">Separate for each slot</option></select>
+<label for="delay">First human meeting</label><select id="delay" name="delay"><option value="0">Immediate</option><option value="7">Seven days later</option></select>
+<label for="slot">Participant slot</label><select id="slot" name="slot"><option value="1">Slot 1</option><option value="2">Slot 2</option><option value="3">Slot 3</option></select>
+<label for="rotation">Character rotation</label><select id="rotation" name="rotation"><option value="0">Aster first</option><option value="1">Rowan first</option><option value="2">Marlow first</option></select>
+<div class="character-map"><p class="eyebrow">Public identity mapping</p><ul id="identity-map"></ul></div>
+<label class="acknowledgement"><input id="demo-ack" type="checkbox" required><span>I understand this is a software walkthrough, not a research study.</span></label>
+<button class="demo-button primary" type="submit" id="start-session">Start private session</button>
+</form>
+<div class="session-actions"><button class="text-button" id="reset-session" type="button" disabled>Reset this session</button><button class="text-button" id="export-session" type="button" disabled>Download demo record · JSON</button></div>
+<p class="compact">The download includes your demo choices and transcript. It is saved to your device, not sent to a researcher.</p>
+<details class="demo-details"><summary>Open independent sessions</summary><p class="compact">Each link opens a separate page with the same public settings. No private conversation is passed to the new tab.</p><div id="session-links" class="session-links"></div></details>
+<p id="app-status" class="app-status" role="status" aria-live="polite"></p>
+</aside>
+<div class="session-area">
+<ol class="demo-progress" aria-label="Walkthrough stages"><li id="progress-1">01 / Private exchange</li><li id="progress-2">02 / Handoff</li><li id="progress-3">03 / Group preview</li></ol>
+<section id="welcome-panel" class="welcome-panel"><p class="eyebrow">Identity is shared. Conversation is private.</p><h2>Same character,<br>different starting points.</h2><p>Open slots 1 and 2. Choose “Sketch a plan” in one session and “Ask what people need” in the other. In the shared condition both meet the same character, with different responses and no shared conversation.</p><p>Switch to separate identities to compare the mapping. The response rules stay the same.</p><div class="demo-boundaries"><div><strong>Implemented</strong><p>Condition mapping, three-turn branching, private state, event export, timing arithmetic, handoff preview.</p></div><div><strong>Not implemented</strong><p>Generative conversation, authentication, stored follow-up, live human-group chat, payments.</p></div></div></section>
+<section id="chat-panel" hidden aria-labelledby="character-title">
+<header class="character-header"><span id="character-mark" class="character-mark" aria-hidden="true">A</span><div><p class="eyebrow">Scripted character · private session</p><h2 id="character-title">Aster</h2><p id="session-label" class="compact"></p></div><span id="turn-label" class="turn-label"></span></header>
+<div id="transcript" class="transcript" role="log" aria-label="Private conversation" aria-live="polite" aria-relevant="additions"></div>
+<div id="choice-panel"><h3 id="choice-prompt" tabindex="-1"></h3><div id="choices" class="choice-list"></div></div>
+<div id="handoff-panel" class="handoff-panel" hidden><p class="eyebrow">Private exchange complete</p><h3>The character leaves before people meet.</h3><p id="eligibility-note"></p><p class="compact">Only public identity and schedule metadata enter the facilitator handoff. Your choices and transcript remain here.</p><button id="open-group" class="demo-button primary" type="button">Open group-phase preview</button></div>
+</section>
+<section id="group-panel" class="group-panel" hidden aria-labelledby="group-title">
+<p class="eyebrow">Human-only handoff · illustrative task</p><h2 id="group-title" tabindex="-1">People meet. The agent is absent.</h2>
+<p id="group-clock-note" class="demo-notice"></p>
+<ol class="group-instructions"><li><strong>First decision:</strong> after a brief neutral introduction, each person privately chooses how many of ten tokens to contribute. In a study, choices must be independently committed and the payment rule honored.</li><li><strong>Then discussion:</strong> a 12-minute human-only discussion about a newcomer welcome activity. Record how people ask questions, take up ideas, and express disagreement.</li><li><strong>Then measures:</strong> partner-specific shared-reality reports and character recognition. These are proposed research measures, not collected by this demo.</li></ol>
+<div class="payoff-preview"><h3>Understand the cooperation task</h3><p>Move the three illustrative contributions. All inputs belong to this visitor; there are no other connected people and no actual payments.</p>
+<div class="payoff-inputs">
+<label for="token-1">Illustrative contribution 1 <output id="value-1" for="token-1">0</output><input id="token-1" type="range" min="0" max="10" step="1" value="0"></label>
+<label for="token-2">Illustrative contribution 2 <output id="value-2" for="token-2">0</output><input id="token-2" type="range" min="0" max="10" step="1" value="0"></label>
+<label for="token-3">Illustrative contribution 3 <output id="value-3" for="token-3">0</output><input id="token-3" type="range" min="0" max="10" step="1" value="0"></label>
+</div><p id="pool-note" class="pool-note" aria-live="polite"></p><div id="payoff-earnings" class="payoff-earnings"></div>
+<p class="compact">Rule: multiply total contributions by 1.5, divide equally among three people, and add each person's unspent tokens. This calculator is not an outcome measure.</p></div>
+<details class="demo-details"><summary>Public handoff record</summary><pre id="handoff-record"></pre></details>
+<button id="finish-demo" type="button" class="demo-button primary">Finish walkthrough</button>
+</section>
+<section id="complete-panel" class="complete-panel" hidden><p class="eyebrow">Software walkthrough complete</p><h2>What did this establish?</h2><p>A shared identity can be maintained while session-specific choices produce different scripted responses. The event record and handoff are inspectable.</p><p>It did not establish a relationship with the character, a change in human cooperation, or seven-day psychological persistence.</p><a class="button-link" href="research.html#shared-social-reality">Read the Build + Study case ↗</a></section>
+<details id="event-details" class="demo-details" hidden><summary>Inspect this session's event log</summary><pre id="event-log"></pre></details>
+</div></div>
+<section class="prototype-context"><h2>Built to make an assumption testable.</h2><p>Research direction and temporal design: Xuechu Zhang, with Dr. Chen Zhou, building on the lab's existing paradigm. This new implementation was developed with Codex assistance during the portfolio upgrade; it is not a previously completed independent engineering project.</p><div class="plain-links"><a href="assets/research/prototype-architecture.svg">Architecture ↗</a><a href="https://github.com/xuechuzhang/xuechuzhang.github.io/blob/main/prototype/README.md">Code &amp; README ↗</a><a href="https://github.com/xuechuzhang/xuechuzhang.github.io/blob/main/docs/pilot-protocol.md">Draft study protocol ↗</a></div></section>
+</main><footer class="site-footer shell"><p>Xuechu Zhang · Research + Build + Study</p><p>Prototype 01 · Scripted demo</p></footer>
+</body></html>
