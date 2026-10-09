@@ -32,16 +32,19 @@ function updatePayoff() {
 }
 function render() {
   const phase=session?.phase;
+  byId('prototype-layout').dataset.sessionActive=String(Boolean(session));
   byId('welcome-panel').hidden=Boolean(session);
   byId('chat-panel').hidden=!['chat','ready'].includes(phase);
   byId('group-panel').hidden=phase!=='group';
   byId('complete-panel').hidden=phase!=='complete';
   byId('event-details').hidden=!session;
+  byId('record-details').hidden=!session;
   fields.forEach(id=>{byId(id).disabled=Boolean(session);});
   byId('demo-ack').disabled=Boolean(session);
   byId('start-session').disabled=Boolean(session);
   byId('reset-session').disabled=!session;
   byId('export-session').disabled=!session;
+  byId('inspect-session').disabled=!session;
   [1,2,3].forEach(i=>byId(`progress-${i}`).removeAttribute('aria-current'));
   const stage=phase==='ready'?2:['group','complete'].includes(phase)?3:1;
   byId(`progress-${stage}`).setAttribute('aria-current','step');
@@ -83,13 +86,15 @@ function render() {
     updatePayoff();
   }
   byId('event-log').textContent=JSON.stringify(session.events,null,2);
+  byId('demo-record').textContent=JSON.stringify(exportRecord(session),null,2);
 }
 function reset() {
   session=null; byId('demo-ack').checked=false;
   byId('transcript').replaceChildren(); byId('choices').replaceChildren();
-  byId('event-log').textContent=''; byId('handoff-record').textContent='';
+  byId('event-log').textContent=''; byId('handoff-record').textContent=''; byId('demo-record').textContent='';
   [1,2,3].forEach(i=>{byId(`token-${i}`).value='0';});
-  byId('event-details').open=false; render(); updateConfiguration();
+  ['event-details','record-details','handoff-details'].forEach(id=>{byId(id).open=false;});
+  updatePayoff(); render(); updateConfiguration();
 }
 try {
   const params=new URLSearchParams(window.location.search);
@@ -109,15 +114,27 @@ byId('open-group').addEventListener('click',()=>{
   catch (error) {status(error.message);}
 });
 byId('finish-demo').addEventListener('click',()=>{
-  try {session=finish(session,Date.now()); render(); status('Walkthrough complete. The record is software demonstration evidence, not participant evidence.'); byId('complete-panel').scrollIntoView({block:'start'});}
+  try {session=finish(session,Date.now()); render(); status('Walkthrough complete. The record is software demonstration evidence, not participant evidence.'); byId('complete-title').focus();}
   catch (error) {status(error.message);}
 });
+function inspectRecord() {
+  if (!session) return;
+  byId('record-details').open=true;
+  byId('record-details').scrollIntoView({block:'start'});
+  byId('record-summary').focus({preventScroll:true});
+}
+byId('inspect-session').addEventListener('click',inspectRecord);
 byId('export-session').addEventListener('click',()=>{
   if (!session) return;
-  const url=URL.createObjectURL(new Blob([JSON.stringify(exportRecord(session),null,2)],{type:'application/json'}));
-  const link=element('a'); link.href=url; link.download=`prototype01-demo-slot${session.config.slot}.json`;
-  document.body.append(link); link.click(); link.remove(); setTimeout(()=>URL.revokeObjectURL(url),1000);
-  status('Demo record downloaded locally. It includes your choices and transcript; nothing was uploaded.');
+  try {
+    const url=URL.createObjectURL(new Blob([JSON.stringify(exportRecord(session),null,2)],{type:'application/json'}));
+    const link=element('a'); link.href=url; link.download=`prototype01-demo-slot${session.config.slot}.json`;
+    document.body.append(link); link.click(); link.remove(); setTimeout(()=>URL.revokeObjectURL(url),1000);
+    status('Download requested. Check your browser downloads; the page cannot confirm the file was saved. The same JSON is available under Inspect demo record. Nothing was uploaded.');
+  } catch {
+    inspectRecord();
+    status('This browser could not create a download. You can inspect and copy the same JSON below. Nothing was uploaded.');
+  }
 });
 [1,2,3].forEach(i=>byId(`token-${i}`).addEventListener('input',updatePayoff));
 window.addEventListener('pagehide',()=>{reset();});

@@ -20,7 +20,8 @@ Open `http://localhost:8000/prototype.html`. Use an HTTP server rather than open
 4. Finish three turns. Inspect the public handoff; it excludes the private choices and transcript.
 5. Choose seven days in a fresh walkthrough. The interface computes a real eligibility timestamp but labels the early handoff as a **clock simulation**.
 6. Explore the payoff calculator. Its three sliders are illustrative inputs from one visitor, not the choices of connected participants.
-7. Download the JSON record or reset. Nothing is uploaded; downloads remain on your device after reset.
+7. Select **Inspect demo record · JSON** to review this page's choices, transcript and events without a download. The view updates as the session advances and is cleared by reset. Illustrative payoff inputs are not recorded.
+8. Request a JSON download if needed. The page cannot confirm the browser saved it; the same record remains inspectable on the page. Nothing is uploaded, and files already downloaded remain on your device after reset.
 
 Public query parameters: `identity=shared|separate`, `delay=0|7`, `slot=1|2|3`, `rotation=0|1|2`. Parameters contain configuration only, not conversation data.
 
@@ -40,7 +41,7 @@ Tests cover configuration, identity mapping/rotation, branch personalization, in
 
 ## What works and what does not
 
-Implemented: independent page instances; stable identity; three-turn choice-based personalization; condition controls and locking; state management; ordered events; local JSON export; reset; handoff timing; facilitator/task preview; illustrative payoff arithmetic.
+Implemented: independent page instances; stable identity; three-turn choice-based personalization; condition controls and locking; state management; ordered events; inline record inspection and local JSON export; reset of private text and record disclosures; handoff timing; facilitator/task preview; illustrative payoff arithmetic.
 
 Not implemented: open-ended generation, relational efficacy, authentication, durable research storage, randomized recruitment, follow-up scheduling, linked groups, synchronous human conversation, or participant payments. The public page is a reviewer walkthrough and reveals condition controls. Do not recruit participants through it as a confirmatory study system.
 

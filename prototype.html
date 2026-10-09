@@ -19,20 +19,20 @@
 <div class="prototype-heading"><div><p class="eyebrow">Featured Build / Prototype 01</p><h1>A shared character.<br>Separate conversations.</h1></div><p>Test a small technical premise: keep a character's identity consistent while its responses depend only on each visitor's own choices.</p></div>
 <p class="demo-notice"><strong>Scripted software demonstration.</strong> No LLM, recruited participants, or behavioral findings. No research data are uploaded. Choices remain in this page's memory until reset, reload, or departure.</p>
 <noscript><p class="demo-notice">This prototype requires JavaScript. The <a href="https://github.com/xuechuzhang/xuechuzhang.github.io/blob/main/prototype/README.md">README</a> explains the interaction and its limitations.</p></noscript>
-<div class="prototype-layout">
+<div class="prototype-layout" id="prototype-layout" data-session-active="false">
 <aside class="config-panel" aria-labelledby="config-title">
 <h2 id="config-title">Configure a walkthrough</h2><p class="compact">These settings are visible to the reviewer. This public demo is not a blinded participant interface.</p>
 <form id="config-form">
-<label for="identity">Character identity</label><select id="identity" name="identity"><option value="shared">Shared across all three slots</option><option value="separate">Separate for each slot</option></select>
-<label for="delay">First human meeting</label><select id="delay" name="delay"><option value="0">Immediate</option><option value="7">Seven days later</option></select>
-<label for="slot">Participant slot</label><select id="slot" name="slot"><option value="1">Slot 1</option><option value="2">Slot 2</option><option value="3">Slot 3</option></select>
-<label for="rotation">Character rotation</label><select id="rotation" name="rotation"><option value="0">Aster first</option><option value="1">Rowan first</option><option value="2">Marlow first</option></select>
+<div class="config-field"><label for="identity">Character identity</label><select id="identity" name="identity"><option value="shared">Shared across all three slots</option><option value="separate">Separate for each slot</option></select></div>
+<div class="config-field"><label for="delay">First human meeting</label><select id="delay" name="delay"><option value="0">Immediate</option><option value="7">Seven days later</option></select></div>
+<div class="config-field"><label for="slot">Participant slot</label><select id="slot" name="slot"><option value="1">Slot 1</option><option value="2">Slot 2</option><option value="3">Slot 3</option></select></div>
+<div class="config-field"><label for="rotation">Character rotation</label><select id="rotation" name="rotation"><option value="0">Aster first</option><option value="1">Rowan first</option><option value="2">Marlow first</option></select></div>
 <div class="character-map"><p class="eyebrow">Public identity mapping</p><ul id="identity-map"></ul></div>
 <label class="acknowledgement"><input id="demo-ack" type="checkbox" required><span>I understand this is a software walkthrough, not a research study.</span></label>
 <button class="demo-button primary" type="submit" id="start-session">Start private session</button>
 </form>
-<div class="session-actions"><button class="text-button" id="reset-session" type="button" disabled>Reset this session</button><button class="text-button" id="export-session" type="button" disabled>Download demo record · JSON</button></div>
-<p class="compact">The download includes your demo choices and transcript. It is saved to your device, not sent to a researcher.</p>
+<div class="session-actions"><button class="text-button" id="inspect-session" type="button" disabled>Inspect demo record · JSON</button><button class="text-button" id="export-session" type="button" disabled>Download demo record · JSON</button><button class="text-button" id="reset-session" type="button" disabled>Reset this session</button></div>
+<p class="compact">Inspect before downloading. The record contains only this page's demo conversation and events. Downloads stay on your device after reset.</p>
 <details class="demo-details"><summary>Open independent sessions</summary><p class="compact">Each link opens a separate page with the same public settings. No private conversation is passed to the new tab.</p><div id="session-links" class="session-links"></div></details>
 <p id="app-status" class="app-status" role="status" aria-live="polite"></p>
 </aside>
@@ -56,10 +56,11 @@
 <label for="token-3">Illustrative contribution 3 <output id="value-3" for="token-3">0</output><input id="token-3" type="range" min="0" max="10" step="1" value="0"></label>
 </div><p id="pool-note" class="pool-note" aria-live="polite"></p><div id="payoff-earnings" class="payoff-earnings"></div>
 <p class="compact">Rule: multiply total contributions by 1.5, divide equally among three people, and add each person's unspent tokens. This calculator is not an outcome measure.</p></div>
-<details class="demo-details"><summary>Public handoff record</summary><pre id="handoff-record"></pre></details>
+<details id="handoff-details" class="demo-details"><summary>Public handoff record</summary><pre id="handoff-record"></pre></details>
 <button id="finish-demo" type="button" class="demo-button primary">Finish walkthrough</button>
 </section>
-<section id="complete-panel" class="complete-panel" hidden><p class="eyebrow">Software walkthrough complete</p><h2>What did this establish?</h2><p>A shared identity can be maintained while session-specific choices produce different scripted responses. The event record and handoff are inspectable.</p><p>It did not establish a relationship with the character, a change in human cooperation, or seven-day psychological persistence.</p><a class="button-link" href="research.html#shared-social-reality">Read the Build + Study case ↗</a></section>
+<section id="complete-panel" class="complete-panel" hidden><p class="eyebrow">Software walkthrough complete</p><h2 id="complete-title" tabindex="-1">What did this establish?</h2><p>A shared identity can be maintained while session-specific choices produce different scripted responses. The event record and handoff are inspectable.</p><p>It did not establish a relationship with the character, a change in human cooperation, or seven-day psychological persistence.</p><a class="button-link" href="research.html#shared-social-reality">Read the Build + Study case ↗</a></section>
+<details id="record-details" class="demo-details" hidden><summary id="record-summary">Inspect private demo record · JSON</summary><p class="compact">Only your own demo choices, transcript, configuration, and events appear here. The illustrative payoff sliders are not recorded. This is software demonstration evidence, not participant data.</p><pre id="demo-record" aria-label="Private demo record"></pre></details>
 <details id="event-details" class="demo-details" hidden><summary>Inspect this session's event log</summary><pre id="event-log"></pre></details>
 </div></div>
 <section class="prototype-context"><h2>Built to make an assumption testable.</h2><p>Research direction and temporal design: Xuechu Zhang, with Dr. Chen Zhou, building on the lab's existing paradigm. This new implementation was developed with Codex assistance during the portfolio upgrade; it is not a previously completed independent engineering project.</p><div class="plain-links"><a href="assets/research/prototype-architecture.svg">Architecture ↗</a><a href="https://github.com/xuechuzhang/xuechuzhang.github.io/blob/main/prototype/README.md">Code &amp; README ↗</a><a href="https://github.com/xuechuzhang/xuechuzhang.github.io/blob/main/docs/pilot-protocol.md">Draft study protocol ↗</a></div></section>
