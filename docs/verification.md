@@ -78,3 +78,11 @@ The static preservation check uses pinned hashes of the verified baseline conten
 | Confirmatory behavioral evidence | No | No claim of social effects |
 
 Implementation provenance: new AI-assisted code developed with Codex during this upgrade; behavioral framing/temporal design from Xuechu's project with Dr. Chen Zhou. No independent prior engineering authorship or lab approval is asserted.
+
+## About and Publications update — 9 October 2026
+
+User-requested changes add the shared-social-reality manuscript under **Manuscript in preparation**, the exact Beyond Research sentence, the supplied portrait and tiger-art photographs, and a scoped rose accent stylesheet. The two source photographs are copied byte-for-byte, with no photo manipulation. Both supplied JPEGs contain no EXIF metadata.
+
+The existing static checker passed across six HTML pages and 142 local/artifact links and anchors. The original three empirical case descriptions, CV page/PDF, and navigation script still match their protected snapshots. About and Publications now match explicitly authorized updated snapshots; their existing academic descriptions and prior publication entries are retained. Rose text (#99475f) has a calculated 6.14:1 contrast against white. Responsive breakpoints are present; no mobile-browser observation is claimed.
+
+Live desktop appearance and image loading remain to be checked after this deployment. No behavioral evidence, prototype implementation, or publication status was upgraded by this presentation change.

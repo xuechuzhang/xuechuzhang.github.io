@@ -1,8 +1,8 @@
 {
   "sourceCommit": "0a41db3f340320a12195b083ef5aa273d3911bf9",
   "files": {
-    "about.html": "beba8d11efe27317735fd0301f450b94ea5cdefb0c5397a202118888d1eedbb1",
-    "publications.html": "4e16702e0fb6ca49ad10c58aafadf97a1cbdbe34d1ea3e66c81f9c3d50d4265d",
+    "about.html": "8eb307c466f0d313f7fac85352de311247b9396a08cf2a38a1a6f95114fbcefc",
+    "publications.html": "2409a1ab9dbf7ea0e4f77c110af69c6b1fe9dda170b2500abaf7ed968a096bb4",
     "cv.html": "8df3d23abfa8be456afd9d8160581abbdeebdb0105680648671a146bf20dbb46",
     "assets/Zhang_Xuechu_CV.pdf": "1ce6560046e91627956e688368745a2fdefb9ac7d8febce93a61ac55dc699f67",
     "assets/site.js": "2ddd0877be5bce3dd067bb6814395668c323703dc2196d6b3647825cd7daa06c"
@@ -11,5 +11,16 @@
     "ai-communication": "be2167d681afcd6412287533c69be89118fd432641aaf54d8104dd18b82afada",
     "gaming-disorder": "e7339e5af99f01ba56619ee503ea5c14ea72382f1a1c9556d5f349752aa303c4",
     "social-perception": "0bfc195be4f7aa96a085d7c16b5c3992d26f88d0695f5e97705a9b58efe0efcd"
-  }
+  },
+  "authorizedUpdates": [
+    {
+      "date": "2026-10-09",
+      "parentCommit": "327f8bdf4213ba83861373d67e55bc8ddc8c7c74",
+      "files": [
+        "about.html",
+        "publications.html"
+      ],
+      "reason": "User requested a shared-reality manuscript entry, Beyond Research text, supplied photographs, and pink accents."
+    }
+  ]
 }

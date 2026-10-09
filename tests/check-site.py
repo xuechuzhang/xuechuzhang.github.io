@@ -60,5 +60,5 @@ for prohibited in ['localStorage','sessionStorage','fetch(', 'XMLHttpRequest','s
 if 'innerHTML' in app:errors.append('Dynamic HTML insertion bypasses text-node rendering')
 if errors:raise SystemExit('\n'.join(errors))
 print(f'PASS: {len(pages)} HTML pages; {checks} local/artifact links and anchors; five-item navigation.')
-print('PASS: three empirical cases preserved (except display numbering); About, Publications, CV, PDF and original navigation script unchanged.')
+print('PASS: three empirical cases preserved (except display numbering); About/Publications match their approved snapshots; CV, PDF and original navigation script unchanged.')
 print('PASS: prototype uses no persistent storage, collection API or dynamic innerHTML. This is a static code check, not a security audit.')
