@@ -132,4 +132,20 @@ Completed after implementation:
 - The static check passed for **seven HTML pages and 183 local/artifact links and anchors**, five-item navigation, protected About/Publications/CV/PDF/navigation files, and the two foundational cases. It now also checks local module imports and scans all prototype modules for persistent storage/collection APIs and dynamic HTML insertion.
 - Home and Research still render identical documented samples and preliminary directions from the existing JSON source. No empirical effect size or significance claim was added.
 
-No framework build, lint configuration, type-check project, or dependency installation is applicable. Local preview was not run because the managed environment lacks its required browser-control skill. Live desktop review will be recorded after deployment. Source tests do not validate behavioral efficacy, production isolation, mobile layout, or screen-reader conformance.
+No framework build, lint configuration, type-check project, or dependency installation is applicable. Local preview was not run because the managed environment lacks its required browser-control skill. Source tests do not validate behavioral efficacy, production isolation, mobile layout, or screen-reader conformance.
+
+### Published desktop review
+
+The GitHub Pages workflow for implementation commit `b19365a799c9840f12494908fcac7ac09cb9e648` completed successfully. The published site was operated in desktop Chrome at a 1363 × 936 viewport.
+
+- Home visibly presents Observe → Build → Scale, both working-demo links, and the first state of the actual policy engine. Switching its radios changes the authored guidance, policy ID, and continuation URL between `answer-supply` and `guided-judgment`, version 0.2.0. Returning to scaffolding restores its first prompt. No page-level horizontal overflow was observed.
+- Keyboard Enter started the full scaffolding route, locked configuration, and focused its heading. An empty reflection displayed the character-limit message and did not advance. All six fictional test responses led to withdrawal; the trace recorded six reflections followed by `assistance_completed`, with only step IDs and character counts in response-event payloads.
+- Starting the new unaided situation displayed a different person and context. The trace disclosure was hidden and its text cleared; the visible stage included no previous prompt, assisted response, or interpretation. Submitting a fictional response reached review, with both drafts and an explicit limit on inferring competence.
+- Inline record inspection showed `prototype02.demo.v2`, `notResearchData: true`, six reflections, ordered transition events, and no score field. Reset removed the visible drafts and record, hid and cleared the trace, unlocked controls, and selected the other mode.
+- The substitution route with the second scenario displayed its authored interpretation, recommendation, and editable draft. Using the draft, finishing assistance, withdrawing help, and responding to the different unaided scenario reached review.
+- Navigating to Research and back returned the demo to its ready state with no prior input or record. Reloading likewise cleared the agent's fictional test text. No sensitive or recruited-participant input was used.
+- Research showed the five intended cases in order. Its loaded images had no observed failures or page-level horizontal overflow. The new architecture and Home Build section were visually inspected. The unchanged shared-character prototype opened with its configuration and explicit implementation limits.
+
+Automation limitation: two semantic pointer attempts on the last reflection did not advance the visible stage. Keyboard Enter and a native click on the visibly unobstructed button both completed that transition. The successful final step was observed through the interface; this limited pass does not establish uniform automation or cross-browser behavior.
+
+These are agent-operated software/interface checks. Human usability feedback, manipulation validation, learning, repeated exposure, and human–human spillover remain untested. Mobile and screen-reader review were not performed. Both prototypes still use authored scripts with page-local memory, not a connected model, authenticated multi-user service, or persistent study backend.
