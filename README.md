@@ -1,15 +1,16 @@
-# Xuechu Zhang — Research + Build + Study
+# Xuechu Zhang — Research + Invention
 
 Academic portfolio at [xuechuzhang.github.io](https://xuechuzhang.github.io/).
 
-I study how artificial social actors reshape human judgment, relationships, and communities. This repository preserves the empirical portfolio and adds a small, inspectable research prototype.
+I study how artificial social actors reshape human judgment, relationships, and communities. The portfolio connects **Observe → Build → Scale**: an empirical problem, an inspectable interaction-policy system, and the shared-character question about later human groups. Both builds are scripted browser demonstrations; psychological effects remain to be tested.
 
 ## Start here
 
 - [Question-led portfolio](https://xuechuzhang.github.io/): mechanisms, empirical evidence, future study, and community extension.
-- [Scaffolding AI — Prototype 02](https://xuechuzhang.github.io/scaffolding.html): two scripted assistance routes, a new unaided situation, and clearly labeled local demo records.
+- [Scaffolding AI — Prototype 02](https://xuechuzhang.github.io/scaffolding.html): versioned substitution/six-step scaffolding policies, withdrawal, a novel unaided situation, and an inspectable local event trace.
 - [Prototype 02 README and proposed evaluation](scaffolding/README.md)
-- [Narrative audit and file plan](docs/narrative-upgrade.md)
+- [Research + Invention audit, technical decisions, and file plan](docs/invention-upgrade.md)
+- [Earlier narrative audit](docs/narrative-upgrade.md)
 
 - [Working Prototype 01](https://xuechuzhang.github.io/prototype.html): stable character identity, separate private choices, scripted responses, event export, and a group-phase preview.
 - [Build + Study case](https://xuechuzhang.github.io/research.html#shared-social-reality)
@@ -33,6 +34,8 @@ Open `http://localhost:8000/` or `http://localhost:8000/prototype.html`. Use a l
 node --test tests/prototype.test.mjs tests/scaffolding.test.mjs
 node --check prototype/app.mjs
 node --check scaffolding/app.mjs
+node --check scaffolding/preview.mjs
+node --check scaffolding/policies.mjs
 python3 scripts/render-research.py --check
 python3 tests/check-site.py
 ```

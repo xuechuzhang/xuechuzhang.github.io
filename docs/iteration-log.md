@@ -51,3 +51,13 @@ No dialogue engine, research hypothesis, recruitment process or behavioral evide
 - Retain the supplied tiger artwork on Home, now alongside academic background, so the hero can explain the research question visually. The About portrait and personal biography remain unchanged.
 
 These are implementation/design decisions, not participant feedback. Source checks and live UI observations are recorded separately in `verification.md`.
+
+
+## 10 October 2026 — Research + Invention, policy v0.2.0
+
+- The three projects already shared a research question but were not labeled as one progression. Home now makes Observe → Build → Scale explicit and brings both functioning demos into its first pass.
+- The earlier four reflections mixed scenario content and interaction logic. Policies now own a versioned six-step route; scenario content remains separate. This makes the candidate manipulation easier to inspect and revise, without claiming semantic diagnosis.
+- A local ordered event trace was added to make transitions inspectable. Response text remains in the separate private draft/reflection record; event payloads do not duplicate it. This is software provenance, not a behavioral metric.
+- The trace could reveal prior assistance during transfer. The transfer whitelist and UI both withhold it until review. Reset/navigation clearing prevents visible progress resurfacing from the browser back cache.
+- A heavyweight model/backend migration would not resolve the unvalidated manipulation. Authored scripts were retained, with future model adapters and multi-user infrastructure documented as future work.
+- Code was developed with Codex assistance. These are implementation decisions, not participant feedback or invented failures. Source and live observations are recorded separately in verification.

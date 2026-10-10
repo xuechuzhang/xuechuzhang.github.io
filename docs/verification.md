@@ -119,3 +119,17 @@ The GitHub Pages build and deployment for commit `f73da316f43349de2e05fff11ca604
 - Reloading the demo cleared the agent's fictional test text and returned the page to its initial configuration. No recruited participant or sensitive personal input was used in these checks.
 
 These are agent-operated interface checks and software tests, not usability feedback, pilot data, or evidence that either interaction mode improves people. Mobile, cross-browser, screen-reader behavior, production data handling, repeated exposure, and human outcomes remain unverified. The existing shared-character walkthrough remains a separate 42-second artifact; no video of Prototype 02 is claimed.
+
+
+## Research + Invention / policy v0.2.0 — 10 October 2026
+
+Before modification, all 58 local repository files matched remote commit `f68e18de9ca440e313d7e236b02501c5940cbba5`. The baseline 14 tests passed.
+
+Completed after implementation:
+
+- All **18 engine tests passed**: nine unchanged shared-character checks and nine policy/scaffolding checks. New checks address six required reflections, mode/version/phase/step rejection, allowlisted public configuration, immutable policies, nondecreasing event times, prior-state preservation, minimal event payloads, detached records, and trace withholding during transfer.
+- Syntax checks passed for **seven native ES modules** across both prototypes, including the Home preview. All research SVGs parse as XML.
+- The static check passed for **seven HTML pages and 183 local/artifact links and anchors**, five-item navigation, protected About/Publications/CV/PDF/navigation files, and the two foundational cases. It now also checks local module imports and scans all prototype modules for persistent storage/collection APIs and dynamic HTML insertion.
+- Home and Research still render identical documented samples and preliminary directions from the existing JSON source. No empirical effect size or significance claim was added.
+
+No framework build, lint configuration, type-check project, or dependency installation is applicable. Local preview was not run because the managed environment lacks its required browser-control skill. Live desktop review will be recorded after deployment. Source tests do not validate behavioral efficacy, production isolation, mobile layout, or screen-reader conformance.

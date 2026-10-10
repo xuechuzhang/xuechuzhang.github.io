@@ -55,10 +55,15 @@ for case in ['ai-communication','gaming-disorder','social-perception']:
         errors.append(f'Empirical case content changed: {case}')
 
 for directory in ['prototype', 'scaffolding']:
-    engine=(ROOT/directory/'engine.mjs').read_text();app=(ROOT/directory/'app.mjs').read_text()
+    modules=list((ROOT/directory).glob('*.mjs'))
+    source='\n'.join(module.read_text() for module in modules)
     for prohibited in ['localStorage','sessionStorage','fetch(', 'XMLHttpRequest','sendBeacon','document.cookie']:
-        if prohibited in engine+app:errors.append(f'{directory}: unexpected storage/network API: {prohibited}')
-    if 'innerHTML' in app:errors.append(f'{directory}: dynamic HTML insertion bypasses text-node rendering')
+        if prohibited in source:errors.append(f'{directory}: unexpected storage/network API: {prohibited}')
+    if 'innerHTML' in source:errors.append(f'{directory}: dynamic HTML insertion bypasses text-node rendering')
+    for module in modules:
+        for imported in re.findall(r'from [\'\"]([^\'\"]+)[\'\"]',module.read_text()):
+            if imported.startswith('.') and not (module.parent/urlsplit(imported).path).is_file():
+                errors.append(f'{module.name}: missing imported module {imported}')
 if errors:raise SystemExit('\n'.join(errors))
 print(f'PASS: {len(pages)} HTML pages; {checks} local/artifact links and anchors; five-item navigation.')
 print('PASS: flagship matches its authorized revision; two foundational cases preserved; About/Publications/CV match approved snapshots; PDF and original navigation script unchanged.')

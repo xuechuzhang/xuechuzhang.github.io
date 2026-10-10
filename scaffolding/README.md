@@ -9,7 +9,7 @@ When assistance is removed, which interaction pattern better supports independen
 The public demo makes a candidate manipulation visible:
 
 - **Substitution:** a fixed interpretation, recommendation, and editable draft. The visitor can adopt or rewrite the draft.
-- **Scaffolding:** four successive prompts for interpretation, evidence, alternatives, and an owned response. The visitor writes every answer.
+- **Scaffolding:** six successive prompts for uncertainty, evidence, perspective, alternatives, checking a conclusion, and an owned response. The visitor writes every answer.
 - **Withdrawal:** both routes lead to a distinct situation with another person. The active screen provides no interpretive prompts, suggested action, or draft.
 - **Review:** the visitor can compare their two drafts and inspect a clearly labeled local demonstration record. No score or learning inference is produced.
 
@@ -32,14 +32,26 @@ Try one complete route, then select **Try the other mode**. This clears the earl
 | Component | Responsibility |
 | --- | --- |
 | `scaffolding.html` | Semantic setup form, radio controls, scenario selector, accessible status region, research links |
-| `scenarios.mjs` | Two authored scenario pairs and the four scaffolding prompts; no visitor text |
-| `engine.mjs` | Pure state transitions, validation, a phase-specific view whitelist, copied record generation |
+| `scenarios.mjs` | Two authored scenario pairs; no visitor text |
+| `policies.mjs` | Versioned, immutable assistance policies and public configuration routing |
+| `engine.mjs` | Pure state transitions, validation, ordered events, a phase-specific view whitelist, copied records |
+| `preview.mjs` | First-state homepage preview, using the same engine as the full demo |
 | `app.mjs` | Reusable DOM builders for headings, buttons, and response forms; safe text-node rendering; control locking and focus management |
 | `demo.css` | Responsive setup/interaction layout, keyboard focus styles, comparison and record views |
 
-State sequence: assistance → withdrawal → transfer → review. Scaffold mode requires all four reflections; substitution mode requires an adopted or rewritten response. Text is bounded to 3–1,200 characters. Illegal transitions and empty answers are rejected.
+Version 0.2.0 separates authored interaction policy from state and rendering. State sequence: assistance → withdrawal → transfer → review. Scaffold mode requires all six reflections; substitution mode requires an adopted or rewritten response. Text is bounded to 3–1,200 characters. Illegal transitions and empty answers are rejected.
 
-The transfer view exposes only its new situation, title, and phase. Earlier prompts and responses remain in this page's memory for the final review but are not rendered during the unaided task. Reset or reload discards the local state. This is a UI-level withdrawal demonstration, not a guarantee that a participant cannot remember help, inspect client code, or open another tab.
+The transfer view exposes only its new situation, title, and phase. Earlier prompts and responses remain in this page's memory for the final review but are not rendered during the unaided task. The technical trace is also withheld during transfer. Reset, reload, and navigation discard the local state; a browser back-cache restore starts fresh. This is a UI-level withdrawal demonstration, not a guarantee that a participant cannot remember help, inspect client code, or open another tab.
+
+## Policy and event trace
+
+`policyFor(mode)` resolves a versioned authored package. The system does **not** infer which prompt a visitor needs: routing is determined by public configuration, phase, and step. Query parameters can select only `mode` and a known scenario; they cannot inject visitor responses or change progress.
+
+Each accepted transition appends an event with sequence, a caller-supplied timestamp, type, and minimal metadata. Reflection events name the step and character count; they do not duplicate free text. The engine rejects invalid or decreasing event times and returns new state objects. The live inspector exposes policy version, phase, and copied event objects. Full local response text is inspectable only in the completed demonstration record, labeled `notResearchData: true`.
+
+The trace supports reproducing software transitions. It is not an attention, effort, competence, or treatment-fidelity measure. A client clock and client state can be altered; real studies need server-side records and assignment.
+
+[Architecture SVG](../assets/research/scaffolding-architecture.svg) · [Combined prototype audit and file plan](../docs/invention-upgrade.md)
 
 ## Data boundaries
 
@@ -74,6 +86,16 @@ python3 tests/check-site.py
 ```
 
 Software checks address allowed transitions, input bounds, assisted/unaided separation, new situations, independent state, copied records, and absence of scoring. They are distinct from usability feedback and behavioral evidence. See [verification report](../docs/verification.md).
+
+## Scripted, model-generated, or hybrid?
+
+| Approach | Benefit | Trade-off / status |
+| --- | --- | --- |
+| Authored scripts | Inspectable policy, identical prompts, no model dependency | Implemented; limited responsiveness and unvalidated stimuli |
+| Model-generated | Can respond to a visitor's interpretation | Proposed; output quality, safety, exposure, and reproducibility need evaluation |
+| Hybrid | Fixed policy sequence with bounded model phrasing | Proposed; still requires a versioned adapter and behavioral pilot |
+
+A future adapter would construct prompts from the selected policy, public scenario, and **that session's** private input only. It would validate structured output against an allowed schema, reject extra fields or unusable responses, apply bounded retries/timeouts, and log model/prompt versions. No prompt builder, response parser, model call, or model evaluation is claimed for v0.2.0. Never put an API secret in this static client.
 
 ## Research provenance
 

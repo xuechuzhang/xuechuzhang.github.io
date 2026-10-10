@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+<title id="title">Scaffolding AI: implemented policy and state architecture</title><desc id="desc">A public mode and scenario select a versioned authored policy. Validated private page state drives safe text rendering and a local event trace. The transfer whitelist hides prior assistance; blinded behavioral evaluation is future work.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9" fill="none" stroke="#99475f" stroke-width="1.5"/></marker></defs>
+<rect width="980" height="540" fill="#fcf8f9"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#171717">
+<text x="34" y="33" font-size="15" fill="#99475f">IMPLEMENTED / BROWSER-LOCAL / AUTHORED SCRIPTS</text>
+<g fill="#fff" stroke="#c9b1b9"><rect x="34" y="60" width="230" height="96"/><rect x="339" y="60" width="294" height="96"/><rect x="708" y="60" width="238" height="96"/></g>
+<text x="52" y="91" font-size="20">Public configuration</text><text x="52" y="119" font-size="14">Mode + fictional scenario</text><text x="52" y="141" font-size="12" fill="#666">No visitor text in a URL</text>
+<text x="357" y="91" font-size="20">Versioned policy router</text><text x="357" y="119" font-size="14">Answer supply / Guided judgment</text><text x="357" y="141" font-size="12" fill="#666">policies.mjs · v0.2.0</text>
+<text x="726" y="91" font-size="20">Authored scenarios</text><text x="726" y="119" font-size="14">Prompts + response branches</text><text x="726" y="141" font-size="12" fill="#666">No LLM or semantic parsing</text>
+<g stroke="#99475f" stroke-width="1.5" fill="none" marker-end="url(#arrow)"><path d="M264 108 H330"/><path d="M708 108 H642"/><path d="M486 156 V199"/></g>
+<g fill="#fff" stroke="#c9b1b9"><rect x="34" y="209" width="230" height="105"/><rect x="339" y="209" width="294" height="105"/><rect x="708" y="209" width="238" height="105"/></g>
+<text x="52" y="240" font-size="20">Local event trace</text><text x="52" y="268" font-size="14">Sequence · time · step ID</text><text x="52" y="293" font-size="12" fill="#666">No response text in payloads</text>
+<text x="357" y="240" font-size="20">Validated page state</text><text x="357" y="268" font-size="14">Phase · step · local responses</text><text x="357" y="293" font-size="12" fill="#666">Bounded input · transition guards</text>
+<text x="726" y="240" font-size="20">Visible interface</text><text x="726" y="268" font-size="14">Text-node rendering + focus</text><text x="726" y="293" font-size="12" fill="#666">Same engine in Home preview</text>
+<g stroke="#99475f" stroke-width="1.5" fill="none" marker-end="url(#arrow)"><path d="M339 259 H274"/><path d="M633 259 H698"/><path d="M486 314 V354"/></g>
+<g fill="#fff" stroke="#c9b1b9"><rect x="339" y="364" width="294" height="84"/><rect x="708" y="364" width="238" height="84"/></g>
+<text x="357" y="395" font-size="20">Withdrawal whitelist</text><text x="357" y="422" font-size="14">Prior help and trace withheld</text>
+<text x="726" y="395" font-size="20">Novel unaided task</text><text x="726" y="422" font-size="14">New context + own response</text>
+<g stroke="#99475f" stroke-width="1.5" fill="none" marker-end="url(#arrow)"><path d="M633 406 H698"/><path d="M827 448 V472 H642" stroke-dasharray="5 4"/></g>
+<rect x="339" y="462" width="294" height="54" fill="none" stroke="#99475f" stroke-dasharray="5 4"/><text x="357" y="484" font-size="12" fill="#99475f">PROPOSED / BEHAVIORAL EVALUATION</text><text x="357" y="505" font-size="15">Blinded ratings + human transfer</text>
+<text x="34" y="389" font-size="13" fill="#666">Private responses stay in</text><text x="34" y="411" font-size="13" fill="#666">this page. Reset/reload</text><text x="34" y="433" font-size="13" fill="#666">clears them. No server.</text>
+</g></svg>

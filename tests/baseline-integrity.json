@@ -8,7 +8,7 @@
     "assets/site.js": "2ddd0877be5bce3dd067bb6814395668c323703dc2196d6b3647825cd7daa06c"
   },
   "cases": {
-    "ai-communication": "2fea800a9cbe165792e2e41016c328545ccee8e40b4c199d7848d47dce736266",
+    "ai-communication": "f3a2cadb6a29fabc64150b56d79798760039fb34f583d63c1d5283ae5eff77c3",
     "gaming-disorder": "e7339e5af99f01ba56619ee503ea5c14ea72382f1a1c9556d5f349752aa303c4",
     "social-perception": "0bfc195be4f7aa96a085d7c16b5c3992d26f88d0695f5e97705a9b58efe0efcd"
   },
@@ -62,6 +62,19 @@
         "research.html"
       ],
       "reason": "User supplied a research-narrative brief requesting a new question-led hero, two-mechanism framework, five-part flagship case, functioning scaffold/substitution demo, and community extension. Underlying sample sizes and preliminary finding directions are preserved; learning and social effects remain untested."
+    },
+    {
+      "date": "2026-10-10",
+      "parentCommit": "f68e18de9ca440e313d7e236b02501c5940cbba5",
+      "files": [
+        "index.html",
+        "research.html",
+        "scaffolding.html",
+        "scaffolding/engine.mjs",
+        "scaffolding/app.mjs",
+        "scaffolding/scenarios.mjs"
+      ],
+      "reason": "User requested Observe \u2192 Build \u2192 Scale, inspectable policy/state architecture, meaningful event traces, and five-part flagship cases. Empirical data, secondary pages and shared-character engine remain intact."
     }
   ]
 }

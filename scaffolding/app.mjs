@@ -1,11 +1,14 @@
 import {SCENARIOS} from './scenarios.mjs';
-import {createSession, submitAssisted, withdrawAssistance, submitUnaided, view, record} from './engine.mjs';
+import {createSession, submitAssisted, withdrawAssistance, submitUnaided, view, record, implementationTrace} from './engine.mjs?v=20261010-invention';
+import {configurationFromQuery, policyFor} from './policies.mjs';
 
 const setup = document.querySelector('#demo-setup');
 const controls = document.querySelector('#demo-controls');
 const root = document.querySelector('#interaction-stage');
 const message = document.querySelector('#demo-message');
 const phaseLabel = document.querySelector('#phase-label');
+const tracePanel = document.querySelector('#policy-trace');
+const traceText = document.querySelector('#trace-output');
 let state = null;
 
 function element(tag, text, className) {
@@ -58,6 +61,14 @@ function responseForm(labelText, action, submitText, defaultText = '') {
 
 function render(focus = true) {
   root.replaceChildren();
+  const phase = state?.phase ?? 'setup';
+  for (const item of document.querySelectorAll('[data-phase]')) {
+    if (item.dataset.phase === phase) item.setAttribute('aria-current', 'step');
+    else item.removeAttribute('aria-current');
+  }
+  tracePanel.hidden = !state || state.phase === 'transfer';
+  traceText.textContent = state && state.phase !== 'transfer' ? JSON.stringify(implementationTrace(state), null, 2) : '';
+  if (tracePanel.hidden) tracePanel.open = false;
   if (!state) {
     phaseLabel.textContent = 'Ready to explore';
     root.append(element('h2', 'An answer to borrow—or a process to practise?'),
@@ -66,6 +77,7 @@ function render(focus = true) {
     return;
   }
   const current = view(state);
+  document.querySelector('#policy-label').textContent = `${policyFor(state.mode).label} · ${state.policyId} v${state.policyVersion}`;
   const labels = {assistance: '1 / Assisted situation', withdrawal: '2 / Assistance withdrawn', transfer: '3 / New situation, unaided', review: '4 / Review your drafts'};
   phaseLabel.textContent = labels[current.phase];
   const heading = element('h2', current.title || 'Two drafts, two contexts');
@@ -118,6 +130,7 @@ function render(focus = true) {
 function reset() {
   const previousMode = state?.mode;
   state = null;
+  document.querySelector('#policy-label').textContent = 'Authored policies · v0.2.0';
   controls.disabled = false;
   if (previousMode) setup.querySelector(`input[value="${previousMode === 'scaffolding' ? 'substitution' : 'scaffolding'}"]`).checked = true;
   message.textContent = 'Local progress cleared. Choose a mode to start again.';
@@ -138,5 +151,21 @@ for (const scenario of SCENARIOS) {
   option.value = scenario.id;
   scenarioSelect.append(option);
 }
+try {
+  const config = configurationFromQuery(window.location.search);
+  setup.querySelector(`input[value="${config.mode}"]`).checked = true;
+  scenarioSelect.value = config.scenarioId;
+} catch {
+  message.textContent = 'Unrecognized public configuration. Default settings restored.';
+}
+function clearOnNavigation() {
+  state = null;
+  controls.disabled = false;
+  message.textContent = '';
+  document.querySelector('#policy-label').textContent = 'Authored policies · v0.2.0';
+  render(false);
+}
+window.addEventListener('pagehide', clearOnNavigation);
+window.addEventListener('pageshow', event => { if (event.persisted) clearOnNavigation(); });
 document.querySelector('#start-demo').disabled = false;
 render(false);

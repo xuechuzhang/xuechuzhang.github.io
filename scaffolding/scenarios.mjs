@@ -19,10 +19,3 @@ export const SCENARIOS = Object.freeze([
     transfer: Object.freeze({title: 'A new situation: feedback from a colleague', context: 'Taylor comments “Interesting choice” on a draft you shared. You had tried a new approach. Taylor has not explained the comment, and you will discuss the draft tomorrow.'})
   })
 ]);
-
-export const PROMPTS = Object.freeze([
-  Object.freeze({id: 'interpretation', title: 'Consider the person', prompt: 'What might the other person be communicating? Keep the uncertainty in view.'}),
-  Object.freeze({id: 'evidence', title: 'Look for evidence', prompt: 'Which detail supports your interpretation? What does that detail leave unresolved?'}),
-  Object.freeze({id: 'alternative', title: 'Try another interpretation', prompt: 'What is another plausible explanation for the same message?'}),
-  Object.freeze({id: 'response', title: 'Choose your own response', prompt: 'Write the response you would choose to send. What would you take responsibility for?'})
-]);
