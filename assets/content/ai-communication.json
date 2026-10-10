@@ -1,0 +1,21 @@
+{
+  "title": "AI-Assisted Interpersonal Communication",
+  "status": "Analysis ongoing · Manuscript in preparation",
+  "context": "Collaborative project with Professor Angel Hsing-Chi Hwang at USC",
+  "samples": [
+    {"label": "Pilot 1", "n": 55},
+    {"label": "Pilot 2", "n": 45},
+    {"label": "Main study", "n": 222}
+  ],
+  "sequence": ["Pre-survey", "Chatbot interaction", "Post-survey"],
+  "methods": "Theory-driven coding of chatbot conversations, interviews, and open-ended responses; mixed-effects analyses of pre–post measures.",
+  "findings": [
+    {"construct": "Perceived sincerity", "direction": "Higher"},
+    {"construct": "Willingness to use AI support", "direction": "Higher"},
+    {"construct": "Ownership", "direction": "Lower"},
+    {"construct": "Perspective-taking", "direction": "Lower"}
+  ],
+  "evidenceLabel": "Preliminary self-report pattern",
+  "limitation": "These reported directions do not establish improved independent competence, lasting dependence, or a causal loss of agency. No effect sizes or significance claims are displayed.",
+  "source": "The existing research case and downloadable case summary, verified against repository commit 5bec755e4ae19ee453b4d815a42fe4e141e9abf7. Raw data and inferential statistics were not supplied for this website update."
+}

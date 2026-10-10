@@ -54,11 +54,12 @@ for case in ['ai-communication','gaming-disorder','social-perception']:
     if hashlib.sha256(normalize(re.search(expression,new,re.S).group()).encode()).hexdigest()!=baseline['cases'][case]:
         errors.append(f'Empirical case content changed: {case}')
 
-engine=(ROOT/'prototype/engine.mjs').read_text();app=(ROOT/'prototype/app.mjs').read_text()
-for prohibited in ['localStorage','sessionStorage','fetch(', 'XMLHttpRequest','sendBeacon','document.cookie']:
-    if prohibited in engine+app:errors.append(f'Unexpected storage/network API: {prohibited}')
-if 'innerHTML' in app:errors.append('Dynamic HTML insertion bypasses text-node rendering')
+for directory in ['prototype', 'scaffolding']:
+    engine=(ROOT/directory/'engine.mjs').read_text();app=(ROOT/directory/'app.mjs').read_text()
+    for prohibited in ['localStorage','sessionStorage','fetch(', 'XMLHttpRequest','sendBeacon','document.cookie']:
+        if prohibited in engine+app:errors.append(f'{directory}: unexpected storage/network API: {prohibited}')
+    if 'innerHTML' in app:errors.append(f'{directory}: dynamic HTML insertion bypasses text-node rendering')
 if errors:raise SystemExit('\n'.join(errors))
 print(f'PASS: {len(pages)} HTML pages; {checks} local/artifact links and anchors; five-item navigation.')
-print('PASS: three empirical cases preserved (except display numbering); About/Publications/CV match their approved snapshots; PDF and original navigation script unchanged.')
-print('PASS: prototype uses no persistent storage, collection API or dynamic innerHTML. This is a static code check, not a security audit.')
+print('PASS: flagship matches its authorized revision; two foundational cases preserved; About/Publications/CV match approved snapshots; PDF and original navigation script unchanged.')
+print('PASS: both demos use no persistent storage, collection API or dynamic innerHTML. This is a static code check, not a security audit.')

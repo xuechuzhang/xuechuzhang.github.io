@@ -86,3 +86,23 @@ User-requested changes add the shared-social-reality manuscript under **Manuscri
 The existing static checker passed across six HTML pages and 142 local/artifact links and anchors. The original three empirical case descriptions, CV page/PDF, and navigation script still match their protected snapshots. About and Publications now match explicitly authorized updated snapshots; their existing academic descriptions and prior publication entries are retained. Rose text (#99475f) has a calculated 6.14:1 contrast against white. Responsive breakpoints are present; no mobile-browser observation is claimed.
 
 Live desktop appearance and image loading remain to be checked after this deployment. No behavioral evidence, prototype implementation, or publication status was upgraded by this presentation change.
+
+
+## Narrative upgrade and Prototype 02 — 10 October 2026
+
+### Completed source checks
+
+- Before modification, the 46 local repository files matched the remote tree at commit `5bec755e4ae19ee453b4d815a42fe4e141e9abf7`.
+- All 14 engine tests passed: nine existing shared-character checks and five new scaffolding checks. The new checks cover invalid/empty inputs, required reflections, allowed transitions, withholding assisted content in the transfer view, novel situations, independent state, copied records, and no competence score.
+- Native JavaScript syntax checks passed for the three new modules: app, engine and scenarios.
+- The seven-page static check passed across 161 local/artifact links and anchors; the five-item navigation, protected secondary pages, CV PDF, original navigation script, and two foundational research cases are intact. The flagship case matches an explicitly authorized narrative revision.
+- Shared evidence rendering/check mode passed: Home and Research display the same sample sizes and preliminary construct directions from one JSON source. The new diagram parsed as valid SVG.
+- Static inspection found no persistent-storage/collection API or dynamic HTML insertion in either demo. This is not a security audit.
+
+There is no framework build, package dependency, type-check or lint configuration to run. The native static/ES-module deployment model is retained. Local browser preview is not available in the managed environment; no browser installation or substitute local automation was used.
+
+### Evidence limits
+
+No new recruited usability feedback, pilot sample, randomized behavioral experiment, competence validation, repeated-session learning, or human–human spillover result exists. Prototype 02 implements one assisted situation and a new unaided one; its demonstration record is explicitly not research data. Scenarios are fictional authored examples, not participant excerpts. The response routes differ in time, effort, practice, and information; matched stimuli and a justified manipulation need pilot work.
+
+Responsive breakpoints and keyboard/focus handling are implemented. Mobile, cross-browser, screen-reader conformance, production authorization/security, and backend data handling are not established by source tests. Live deployment and desktop UI results will be recorded separately after they are observed.

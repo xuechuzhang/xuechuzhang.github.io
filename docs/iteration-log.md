@@ -39,3 +39,15 @@ A captioned 42-second sequence was made from five real interface captures. The s
 - **Version changed assets together.** Live review initially loaded the revised HTML with cached earlier CSS: the video figure retained default side margins and its caption used the body font size. Explicit version parameters were added to the changed homepage/prototype styles and prototype script so returning visitors request the corresponding resource revision.
 
 No dialogue engine, research hypothesis, recruitment process or behavioral evidence was added by this refinement. Live UI checks are recorded separately in the verification report.
+
+
+## Research narrative and Prototype 02 — 10 October 2026
+
+- Lead with the unresolved human question and an empirical pattern; move the shared-character implementation to the community extension while retaining the working MVP and video.
+- Preserve the four reported constructs and sample sizes in one data source. Use the same static evidence component on Home and Research to reduce content drift. No coefficient or significance plot can be made from the supplied summary.
+- Separate giving a response from practising an interpretation. Two authored routes converge on a novel unaided task; the interface exposes the idea without claiming an AI model or validated intervention.
+- Avoid automatic competence scoring. Different situations and one visitor's drafts cannot establish learning; the proposed evaluation requires randomized assignment, reliable blinded ratings, and human transfer.
+- Keep private responses in page memory, render them as text, and clear local state on reset. A public walkthrough does not offer production privacy controls or study randomization.
+- Retain the supplied tiger artwork on Home, now alongside academic background, so the hero can explain the research question visually. The About portrait and personal biography remain unchanged.
+
+These are implementation/design decisions, not participant feedback. Source checks and live UI observations are recorded separately in `verification.md`.
