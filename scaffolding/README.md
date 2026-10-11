@@ -1,102 +1,101 @@
-# Scaffolding AI — Prototype 02
+# Scaffolding AI — Prototype 02, v0.3.0
 
-**Status:** working, hand-authored interaction-design demonstration. It is not an LLM, recruited pilot, competence assessment, or approved research deployment. Developed with Codex assistance during the portfolio update on 10 October 2026.
+**Status:** working, hand-authored browser interaction. Not an LLM, recruited pilot, competence assessment, or approved research deployment. Developed with Codex assistance; this is a new portfolio artifact, not prior solo engineering or an implementation from the USC study.
 
-## Question and current implementation
+**Question:** When AI gets better at helping us communicate, do we become better communicators?
 
-When assistance is removed, which interaction pattern better supports independent interpersonal competence?
+## Run and experience
 
-The public demo makes a candidate manipulation visible:
-
-- **Substitution:** a fixed interpretation, recommendation, and editable draft. The visitor can adopt or rewrite the draft.
-- **Scaffolding:** six successive prompts for uncertainty, evidence, perspective, alternatives, checking a conclusion, and an owned response. The visitor writes every answer.
-- **Withdrawal:** both routes lead to a distinct situation with another person. The active screen provides no interpretive prompts, suggested action, or draft.
-- **Review:** the visitor can compare their two drafts and inspect a clearly labeled local demonstration record. No score or learning inference is produced.
-
-Two fictional scenario pairs are included. Each mode uses the same training case and associated transfer case when the same scenario is selected. These examples are newly authored materials, not anonymized participant conversations or validated experimental stimuli.
-
-## Run and inspect
-
-No framework, credentials, dependency installation, or build is required. From the repository root:
+No framework, credentials, dependencies, or build step is needed. From the repository root:
 
 ```sh
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000/scaffolding.html`. An HTTP server is needed for native ES modules. The public page is [scaffolding.html](https://xuechuzhang.github.io/scaffolding.html).
+Open `http://localhost:8000/scaffolding.html`. HTTP is needed for ES modules. [Public demo](https://xuechuzhang.github.io/scaffolding.html) · [Home with embedded demo](https://xuechuzhang.github.io/#scaffolding-ai).
 
-Try one complete route, then select **Try the other mode**. This clears the earlier local state and preselects the other mode; it does not retain a within-person experimental comparison. The public control panel reveals conditions, and no randomization is implemented.
+1. Select a mode and fictional situation. Start and record your initial reading.
+2. **Direct AI · scripted:** inspect a candidate reading, action, and editable draft. None is generated from your text.
+3. **Scaffolding AI · scripted:** write five reflections about uncertainty, evidence, perspective, alternatives, and checking your conclusion.
+4. **Independent Reflection:** receive no candidate interpretation, action, or draft. The same strategy menu and response fields remain; this is not a no-task control.
+5. In every mode, choose a strategy and write the response you would send.
+6. End the first task and start a new situation. Earlier reasoning, assistance, strategy, draft, and trace are absent from the task screen.
+7. Submit an unaided response. Review both drafts, your initial interpretation and selected strategy, and the local demonstration record. No score is generated.
+8. **Try another mode** or **Reset local progress** clears state, unlocks controls, and closes the trace. Mode switching does not retain a within-person experimental comparison.
 
-## Architecture and state
+Two authored scenario pairs are included. The same pair is available in all three modes. They are fictional examples, not participant excerpts or validated experimental stimuli. All public conditions are visible and self-selected.
 
-| Component | Responsibility |
+## Actual architecture
+
+| File | Implemented responsibility |
 | --- | --- |
-| `scaffolding.html` | Semantic setup form, radio controls, scenario selector, accessible status region, research links |
-| `scenarios.mjs` | Two authored scenario pairs; no visitor text |
-| `policies.mjs` | Versioned, immutable assistance policies and public configuration routing |
-| `engine.mjs` | Pure state transitions, validation, ordered events, a phase-specific view whitelist, copied records |
-| `preview.mjs` | First-state homepage preview, using the same engine as the full demo |
-| `app.mjs` | Reusable DOM builders for headings, buttons, and response forms; safe text-node rendering; control locking and focus management |
-| `demo.css` | Responsive setup/interaction layout, keyboard focus styles, comparison and record views |
+| `scaffolding.html` | Three-mode setup, seven-stage progress, scenario select, accessible status, trace disclosure |
+| `scenarios.mjs` | Two immutable fictional training/transfer pairs |
+| `policies.mjs` | Three immutable v0.3.0 policies; four strategy definitions; allowlisted public configuration |
+| `engine.mjs` | Pure transitions, input/state validation, ordered events, transfer whitelist, copied records |
+| `app.mjs` | Text-node rendering, forms, errors, focus, own reasoning history, reset and navigation clearing |
+| `preview.mjs` | Real authored policy entry on Home; no synthetic visitor input or demo evidence |
+| `demo.css` | Responsive setup, fields, stages, history, and embedded-page layout |
+| `../assets/build-embed.mjs` | Lazy-load the same demo on Home; change iframe width without recreating its session |
 
-Version 0.2.0 separates authored interaction policy from state and rendering. State sequence: assistance → withdrawal → transfer → review. Scaffold mode requires all six reflections; substitution mode requires an adopted or rewritten response. Text is bounded to 3–1,200 characters. Illegal transitions and empty answers are rejected.
+The state sequence is **initial → assistance → strategy → response → withdrawal → transfer → review**. All text submissions require 3–1,200 trimmed characters. A scaffold session cannot skip any of its five prompts. Every route requires a valid strategy ID and first response before the novel task. Empty answers, invalid IDs, illegal phases, and invalid/decreasing event times are rejected.
 
-The transfer view exposes only its new situation, title, and phase. Earlier prompts and responses remain in this page's memory for the final review but are not rendered during the unaided task. The technical trace is also withheld during transfer. Reset, reload, and navigation discard the local state; a browser back-cache restore starts fresh. This is a UI-level withdrawal demonstration, not a guarantee that a participant cannot remember help, inspect client code, or open another tab.
+The URL accepts only known `mode` and `scenario` values and an `embed=1` layout flag. The internal `substitution` key remains for compatibility with prior direct-mode links. Query parameters cannot inject response text or progress.
 
-## Policy and event trace
+[Architecture SVG](../assets/research/scaffolding-architecture.svg) · [Implemented flow](../assets/research/scaffolding-transfer.svg) · [Current audit and file-by-file report](../docs/implementation-oct11.md)
 
-`policyFor(mode)` resolves a versioned authored package. The system does **not** infer which prompt a visitor needs: routing is determined by public configuration, phase, and step. Query parameters can select only `mode` and a known scenario; they cannot inject visitor responses or change progress.
+## State and data schema
 
-Each accepted transition appends an event with sequence, a caller-supplied timestamp, type, and minimal metadata. Reflection events name the step and character count; they do not duplicate free text. The engine rejects invalid or decreasing event times and returns new state objects. The live inspector exposes policy version, phase, and copied event objects. Full local response text is inspectable only in the completed demonstration record, labeled `notResearchData: true`.
+| State field | Meaning |
+| --- | --- |
+| `version`, `policyId`, `policyVersion` | Software/policy provenance, currently 0.3.0 |
+| `mode`, `scenarioId`, `phase`, `step` | Public configuration and current transition state |
+| `initialInterpretation` | Own reading, recorded before assistance |
+| `reflections` | Zero or five completed `{id, text}` reflections |
+| `strategyId` | Self-selected label; not an automated semantic classification |
+| `stageOneResponse`, `unaidedResponse` | Own responses in the two distinct situations |
+| `events` | Ordered `{sequence, type, at, payload}` implementation trace |
 
-The trace supports reproducing software transitions. It is not an attention, effort, competence, or treatment-fidelity measure. A client clock and client state can be altered; real studies need server-side records and assignment.
+The record uses `schemaVersion: prototype02.demo.v3`, `evidenceType: interaction_design_demo`, and `notResearchData: true`. Response/reflection text belongs in its local text fields; event payloads contain only IDs and character counts. Accepted events are `session_started`, `initial_interpretation_submitted`, `reflection_submitted`, `guidance_completed` or `independent_stage_started`, `strategy_selected`, `first_task_completed`, `transfer_started`, and `transfer_submitted`.
 
-[Architecture SVG](../assets/research/scaffolding-architecture.svg) · [Combined prototype audit and file plan](../docs/invention-upgrade.md)
+The trace is minimal software provenance, not an effort, competence, attention, or fidelity measure. A client clock/state can be altered. Review and record objects copy mutable data so editing an export cannot alter another session.
 
-## Data boundaries
+## Interaction design and strategy logic
 
-There is no persistent browser storage, collection endpoint, model request, analytics integration, synchronization, or automatic file export. Visitor text is inserted as text nodes. The inspectable record states `notResearchData: true` and contains only this page's local demonstration inputs. Ordinary hosting handles page requests; local memory is not a production security boundary.
+The five authored scaffold prompts are fixed and sequential. They do not diagnose needs or adapt semantically. The shared strategy menu defines **clarify**, **acknowledge**, **express**, and **pause**. Selection is required and recorded without a recommendation or rating. Every mode has the menu, including Independent Reflection; its prompting effect needs to be considered in a real study.
 
-Do not enter real interpersonal disclosures or recruit a confirmatory sample through this public reviewer walkthrough. A study version needs an approved consent/data-management flow, access controls, server-side assignment, standardized exposure and timing, and suitable compensation.
+The transfer engine exposes only phase, novel title, and context. The DOM renderer clears earlier content and the event trace, and renders no previous strategy, history, or help. Those data remain in page memory for review. This demonstrates a UI boundary, not erasure of human memory, protection against client inspection, or prevention of outside help.
 
-## Proposed study, separate from the demo
+There is no persistent browser storage, collection endpoint, analytics integration, model call, database, synchronization, or automatic export. Text is inserted through text nodes. Reset/reload/navigation clears page state; a back-cache restore starts fresh. Ordinary hosting receives page requests. Page-memory separation is not production authorization.
 
-**Hypothesis:** following matched exposure, scaffolding produces stronger independently generated responses on new tasks than substitution. This is a proposed hypothesis, not a finding. The whole prompt package is compared; a two-condition contrast would not isolate which prompt causes an effect.
+## Proposed pilot and study — no data collected
 
-1. Pilot stimulus clarity, interpretation ambiguity, task difficulty, and perceived support. Decide pilot criteria and revision rules before recruiting.
-2. Randomly assign participants to the two assistance packages; consider a no-assistance reference to distinguish benefits from costs. Balance scenario order, response quality, duration, and task demands as far as the theory permits.
-3. Obtain an unaided baseline, immediate transfer on a novel case, and a prespecified delayed transfer task. Repeated training is future work; the demo contains only one assisted case.
-4. Prespecify a rubric for perspective differentiation, evidence-sensitive interpretation, acknowledgment of uncertainty, and appropriateness of an independently written response. Develop reliable ratings with coders blind to condition. Ownership is a separate self-report, not a competence score.
-5. Test a subsequent standardized human–human interaction to assess spillover. Drafts in a public walkthrough cannot establish real relational effects.
-6. Choose a primary outcome and contrast before collection. Estimate sample size from a defensible target effect and expected missingness; for repeated tasks, account for participant and scenario dependence. Report estimates and confidence intervals, adherence, attrition, and deviations. Avoid interpreting a nonsignificant contrast as equivalence without a planned criterion.
+**Hypothesis:** following justified exposure, a scaffold package supports stronger independent responses on new tasks than a direct-answer package. Independent Reflection provides a reference for interpreting possible benefits and costs. These are hypotheses, not findings.
 
-### Current limitations and next version
+1. Pilot fictional stimulus clarity, ambiguity, difficulty, warmth, and comprehension. Prespecify revision criteria. The current routes differ in time, effort, practice, and information; decide what to match and what the treatment legitimately includes.
+2. Following ethics approval and consent, obtain an unaided baseline and randomly assign the three packages. Standardize exposure, scenario order and task demands. Public mode controls are unsuitable for this study.
+3. Define a primary new-task outcome: reliable blinded ratings of perspective differentiation, evidence sensitivity, acknowledged uncertainty, and response appropriateness. Ownership remains a separate self-report. No automated score is implemented.
+4. Prespecify the scaffold/direct contrast and the role/multiplicity of comparisons with Independent Reflection. Power the chosen target effect and expected missingness; account for participant/scenario dependence in repeated tasks. Report estimates and intervals, adherence, attrition and deviations.
+5. Add a delayed novel task and a standardized human–human interaction only with a valid design. Neither a pair of drafts nor “significant now, nonsignificant later” establishes learning, persistence, or spillover. Meaningful-null claims need an equivalence criterion.
 
-The prompt routes differ in effort, reading, time, and practice opportunities. Those are potential mechanisms and confounds requiring a defensible design; the current demo does not match them. Different task contexts make individual draft comparisons illustrative. No model quality, participant experience, reliable rating, or learning effect has been evaluated.
+Do not recruit participants or enter sensitive real disclosures through this public walkthrough. A study version requires approved data management, access controls, server-side assignment, standardized timing, and suitable compensation.
 
-The next version should improve stimulus matching and pilot comprehension before adding generative responses or repeated-session infrastructure. A helpful-looking interaction is not evidence of improved competence.
+## What was learned and what comes next
+
+v0.2.0 did not capture initial interpretation or an explicit strategy. v0.3.0 adds these, separates guided reflection from response authorship, and implements the third route. The result makes the candidate manipulation inspectable without inventing a classifier or model adapter. It does not solve exposure/effort confounds or validate the strategy taxonomy.
+
+Next: validate stimuli and ratings, review the policy manipulation, and design approved assignment and collection. A model-generated or hybrid policy could later personalize phrasing; no prompt builder, parser, API adapter, structured model output, model evaluation, or backend is claimed. Secrets must not be placed in a static client.
 
 ## Verify
 
 ```sh
-node --test tests/scaffolding.test.mjs
+node --test tests/prototype.test.mjs tests/scaffolding.test.mjs
 node --check scaffolding/app.mjs
+node --check scaffolding/preview.mjs
+node --check assets/build-embed.mjs
 python3 scripts/render-research.py --check
+python3 scripts/render-impact.py --check
 python3 tests/check-site.py
 ```
 
-Software checks address allowed transitions, input bounds, assisted/unaided separation, new situations, independent state, copied records, and absence of scoring. They are distinct from usability feedback and behavioral evidence. See [verification report](../docs/verification.md).
-
-## Scripted, model-generated, or hybrid?
-
-| Approach | Benefit | Trade-off / status |
-| --- | --- | --- |
-| Authored scripts | Inspectable policy, identical prompts, no model dependency | Implemented; limited responsiveness and unvalidated stimuli |
-| Model-generated | Can respond to a visitor's interpretation | Proposed; output quality, safety, exposure, and reproducibility need evaluation |
-| Hybrid | Fixed policy sequence with bounded model phrasing | Proposed; still requires a versioned adapter and behavioral pilot |
-
-A future adapter would construct prompts from the selected policy, public scenario, and **that session's** private input only. It would validate structured output against an allowed schema, reject extra fields or unusable responses, apply bounded retries/timeouts, and log model/prompt versions. No prompt builder, response parser, model call, or model evaluation is claimed for v0.2.0. Never put an API secret in this static client.
-
-## Research provenance
-
-The conceptual question follows Xuechu's described AI-assisted interpersonal communication work. Prototype 02 is a new AI-assisted software artifact created for the portfolio. It is not represented as prior solo engineering, a USC lab implementation, a validated intervention, or a result of the empirical study. No participant input from the USC research is included.
+Tests cover both scenario pairs across all modes, required initial reading and strategy, rejected transitions/inputs, the transfer boundary, immutable policy routing, independent state, copied records, ordered minimal events, and absence of scores. Browser walkthroughs are recorded separately in the [verification report](../docs/implementation-oct11.md). Software tests are not human usability feedback, pilot data, or confirmatory evidence.

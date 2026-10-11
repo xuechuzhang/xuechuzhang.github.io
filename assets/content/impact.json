@@ -1,0 +1,56 @@
+{
+  "sourceCommit": "03a946b0c4ed1684531844fa6189ee2e0f2c6a1d",
+  "scope": "Existing CV and case summary; not independently audited analytics.",
+  "records": [
+    {
+      "id": "ai-guide",
+      "title": "AI-Assisted Interpersonal Communication",
+      "role": "Theoretical framing, coding, mixed-methods analysis, and translation",
+      "artifact": "Online guide and follow-up feedback survey, described in the project record.",
+      "status": "Research analysis ongoing; manuscript in preparation. No public guide URL supplied.",
+      "reach": null,
+      "source": "assets/ai-communication-case-summary.txt",
+      "learning": "Assess understanding and later independent communication; no guide-impact evaluation is reported."
+    },
+    {
+      "id": "peer-information",
+      "title": "Xiaohongshu: Study-Abroad Peer Information",
+      "role": "Independent content creator",
+      "artifact": "Chinese-language study-abroad resources and peer information sharing.",
+      "status": "Self-reported cumulative exposure in the existing CV.",
+      "reach": {
+        "display": "1M+",
+        "unit": "cumulative content views",
+        "kind": "self-reported public reach",
+        "limitation": "Not unique viewers, participants, or evaluated wellbeing outcomes."
+      },
+      "source": "cv.html#community-contributions",
+      "learning": "Evaluate clarity and navigation of unfamiliar systems; no measured benefit is reported."
+    },
+    {
+      "id": "anti-bullying",
+      "title": "Anti-Bullying Project · 2022–2023",
+      "role": "Contributed to interviews, focus groups, survey questions, and public materials",
+      "artifact": "Reported team project scope: 30+ interviews, 40+ interview hours, and public video materials.",
+      "status": "Scope and reach self-reported in the existing CV; not attributed entirely to one contributor.",
+      "reach": {
+        "display": "100k+",
+        "unit": "cumulative public video views",
+        "kind": "self-reported public reach",
+        "limitation": "Views are exposure, not evidence that bullying decreased."
+      },
+      "source": "cv.html#community-contributions",
+      "learning": "Assess comprehension and relevant behavior before claiming social impact."
+    },
+    {
+      "id": "student-support",
+      "title": "Chinese Student Union, University of Glasgow",
+      "role": "Student Support Volunteer · 2024–Present",
+      "artifact": "Support with arrivals, orientation, campus information, and access to university resources.",
+      "status": "Contribution documented in the existing CV; hours and participant totals not supplied.",
+      "reach": null,
+      "source": "cv.html#community-contributions",
+      "learning": "Learn which resources peers need; no quantified impact is reported."
+    }
+  ]
+}

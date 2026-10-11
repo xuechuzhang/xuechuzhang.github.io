@@ -1,100 +1,159 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createSession, submitAssisted, withdrawAssistance, submitUnaided, view, record, implementationTrace} from '../scaffolding/engine.mjs';
-import {POLICIES, policyFor, configurationFromQuery} from '../scaffolding/policies.mjs';
+import {createSession, submitInitial, submitReflection, finishGuidance, chooseStrategy, submitResponse, beginTransfer, submitUnaided, view, record, implementationTrace, policyEntry, VERSION} from '../scaffolding/engine.mjs';
+import {POLICIES, MODES, STRATEGIES, policyFor, strategyFor, configurationFromQuery} from '../scaffolding/policies.mjs';
+import {SCENARIOS} from '../scaffolding/scenarios.mjs';
 
-function scaffold() {
-  let state = createSession('scaffolding', 'team');
-  for (const answer of ['Unclear intention.', 'An earlier request to discuss.', 'Maybe short on time.', 'Busy or wants input.', 'I should ask first.', 'Could we talk before the deadline?']) state = submitAssisted(state, answer);
-  return state;
+const firstText = 'My own initial reading is uncertain.';
+const ownResponse = 'Could we talk about what would work for both of us?';
+function toStrategy(mode, scenario = 'team') {
+  let s = submitInitial(createSession(mode, scenario, 1000), firstText, 1010);
+  if (mode === 'scaffolding') {
+    for (let i = 0; i < policyFor(mode).steps.length; i++) s = submitReflection(s, 'My own reflection ' + i + '.', 1020 + i);
+  } else s = finishGuidance(s, 1020);
+  return s;
+}
+function toWithdrawal(mode, scenario = 'team', strategy = 'clarify') {
+  return submitResponse(chooseStrategy(toStrategy(mode, scenario), strategy, 1030), ownResponse, 1040);
 }
 
-test('configuration and incomplete inputs cannot advance a session', () => {
-  assert.throws(() => createSession('invalid', 'team'));
-  assert.throws(() => createSession('scaffolding', 'missing'));
-  const s = createSession('scaffolding', 'team');
-  assert.throws(() => submitAssisted(s, '  '));
-  assert.throws(() => submitAssisted(s, 'a'.repeat(1201)));
-  assert.throws(() => withdrawAssistance(s));
-  assert.throws(() => submitUnaided(s, 'A reply.'));
-  assert.equal(s.step, 0);
-});
+for (const mode of MODES) {
+  for (const scenario of SCENARIOS) {
+    test(mode + '/' + scenario.id + ': complete seven-phase flow, unaided boundary and descriptive record', () => {
+      const initial = createSession(mode, scenario.id, 1000);
+      assert.equal(initial.phase, 'initial');
+      assert.deepEqual(Object.keys(view(initial)).sort(), ['context','phase','title']);
+      const strategy = toStrategy(mode, scenario.id);
+      assert.equal(strategy.phase, 'strategy');
+      const response = chooseStrategy(strategy, 'clarify', 1030);
+      assert.equal(response.phase, 'response');
+      assert.equal(Boolean(view(response).draft), mode === 'substitution');
+      const withdrawal = submitResponse(response, ownResponse, 1040);
+      assert.equal(withdrawal.phase, 'withdrawal');
+      const transfer = beginTransfer(withdrawal, 1050);
+      assert.deepEqual(Object.keys(view(transfer)).sort(), ['context','phase','title']);
+      assert.notEqual(view(transfer).context, view(initial).context);
+      for (const text of [firstText, ownResponse, ...strategy.reflections.map(r => r.text)]) assert.ok(!JSON.stringify(view(transfer)).includes(text));
+      assert.equal(implementationTrace(transfer), null);
+      const finished = submitUnaided(transfer, 'Let us find a time that works for both of us.', 1060);
+      assert.equal(finished.phase, 'review');
+      assert.equal(view(finished).stageOneResponse, ownResponse);
+      assert.equal(view(finished).initialInterpretation, firstText);
+      const output = record(finished);
+      assert.equal(output.schemaVersion, 'prototype02.demo.v3');
+      assert.equal(output.notResearchData, true);
+      assert.equal(output.version, VERSION);
+      assert.equal('score' in output, false);
+      assert.equal('classification' in output, false);
+      assert.equal(output.reflections.length, mode === 'scaffolding' ? 5 : 0);
+      assert.deepEqual(output.events.slice(-3).map(e => e.type), ['first_task_completed','transfer_started','transfer_submitted']);
+      assert.equal(output.events.at(-2).payload.assistanceWasPresent, mode !== 'independent');
+    });
+  }
+}
 
-test('scaffolding requires all six reflections before withdrawal', () => {
-  const s = scaffold();
-  assert.equal(s.phase, 'withdrawal');
-  assert.deepEqual(s.reflections.map(r => r.id), ['uncertainty', 'evidence', 'perspective', 'alternatives', 'challenge', 'response']);
-  assert.equal(s.supportedResponse, 'Could we talk before the deadline?');
-  assert.throws(() => submitAssisted(s, 'More help.'));
-});
-
-test('both modes expose only the novel situation during the unaided phase', () => {
-  for (const s of [scaffold(), submitAssisted(createSession('substitution', 'team'), 'My chosen reply.')]) {
-    const before = view(createSession(s.mode, s.scenarioId));
-    const current = view(withdrawAssistance(s));
-    assert.deepEqual(Object.keys(current).sort(), ['context', 'phase', 'title']);
-    assert.notEqual(current.context, before.context);
-    for (const privateText of [s.supportedResponse, ...s.reflections.map(r => r.text)]) assert.ok(!JSON.stringify(current).includes(privateText));
-    assert.equal(implementationTrace(withdrawAssistance(s)), null);
+test('all routes require an initial interpretation before help and reject empty/oversized text', () => {
+  for (const mode of MODES) {
+    const s = createSession(mode, 'team');
+    for (const invalid of ['', ' a ', null, 'x'.repeat(1201)]) assert.throws(() => submitInitial(s, invalid));
+    assert.throws(() => finishGuidance(s));
+    assert.throws(() => chooseStrategy(s, 'clarify'));
+    assert.equal(s.phase, 'initial');
+    assert.equal(s.events.length, 1);
+    assert.equal(submitInitial(s, '  Valid reading.  ').initialInterpretation, 'Valid reading.');
   }
 });
 
-test('independent sessions and inspectable records do not share mutable reflections', () => {
-  const first = scaffold();
-  const second = createSession('scaffolding', 'team');
-  const exported = record(first);
-  exported.reflections[0].text = 'changed';
-  exported.events[0].payload.policyId = 'changed';
-  assert.notEqual(first.reflections[0].text, 'changed');
-  assert.equal(second.reflections.length, 0);
-  assert.notEqual(first.events[0].payload.policyId, 'changed');
-  assert.equal(exported.notResearchData, true);
+test('the scaffold cannot skip prompts and non-scaffold modes cannot submit them', () => {
+  let s = submitInitial(createSession('scaffolding', 'team'), firstText);
+  for (let i = 0; i < 5; i++) {
+    assert.throws(() => finishGuidance(s));
+    assert.throws(() => chooseStrategy(s, 'clarify'));
+    assert.throws(() => submitReflection(s, '  '));
+    s = submitReflection(s, 'Reflection ' + i);
+  }
+  assert.equal(s.phase, 'strategy');
+  assert.deepEqual(s.reflections.map(r => r.id), ['uncertainty','evidence','perspective','alternatives','challenge']);
+  assert.throws(() => submitReflection(s, 'Extra step.'));
+  for (const mode of ['substitution','independent']) assert.throws(() => submitReflection(submitInitial(createSession(mode, 'team'), firstText), 'A reflection.'));
 });
 
-test('completion preserves drafts as demo text and rejects further task submissions', () => {
-  const s = submitUnaided(withdrawAssistance(scaffold()), 'I hope we can find another time to meet.');
-  assert.equal(s.phase, 'review');
-  assert.equal(view(s).unaidedResponse, 'I hope we can find another time to meet.');
-  assert.throws(() => submitUnaided(s, 'Another response.'));
-  assert.throws(() => withdrawAssistance(s));
-  assert.equal('score' in record(s), false);
+test('strategy is a required, allowlisted self-report and every definition is routable', () => {
+  const s = toStrategy('independent');
+  for (const invalid of ['', 'toString', 'unknown', undefined]) assert.throws(() => chooseStrategy(s, invalid));
+  assert.throws(() => submitResponse(s, ownResponse));
+  for (const strategy of STRATEGIES) {
+    const response = chooseStrategy(s, strategy.id, 1030);
+    assert.equal(view(response).strategy.definition, strategy.definition);
+    assert.deepEqual(response.events.at(-1).payload, {strategyId: strategy.id});
+  }
+  assert.throws(() => strategyFor('constructor'));
 });
 
-test('immutable policies route only public configuration, never visitor text or progress', () => {
-  assert.equal(policyFor('scaffolding').steps.length, 6);
+test('first response, explicit withdrawal and novel response cannot be bypassed', () => {
+  const response = chooseStrategy(toStrategy('substitution'), 'clarify', 1030);
+  assert.throws(() => beginTransfer(response));
+  assert.throws(() => submitResponse(response, ''));
+  const withdrawal = submitResponse(response, ownResponse, 1040);
+  assert.throws(() => submitUnaided(withdrawal, 'New response.'));
+  const transfer = beginTransfer(withdrawal, 1050);
+  assert.throws(() => submitUnaided(transfer, 'ab'));
+  const final = submitUnaided(transfer, 'New response.', 1060);
+  assert.throws(() => submitUnaided(final, 'Another response.'));
+  assert.throws(() => beginTransfer(final));
+});
+
+test('independent policy entry has no reading, action or draft; all entries use real scenario content', () => {
+  for (const mode of MODES) {
+    const entry = policyEntry(mode, 'plans');
+    assert.equal(entry.context, SCENARIOS[1].context);
+    if (mode === 'independent') {assert.equal(entry.independent, true);assert.equal('guidance' in entry, false);assert.equal('prompt' in entry, false);}
+  }
+  assert.equal(policyEntry('scaffolding','team').prompt.id, 'uncertainty');
   assert.ok(Object.isFrozen(POLICIES.scaffolding.steps[0]));
-  assert.throws(() => policyFor('toString'));
-  assert.throws(() => configurationFromQuery('?mode=unknown'));
+});
+
+test('public routing only selects allowed configuration and cannot inject text or progress', () => {
+  for (const mode of MODES) assert.equal(configurationFromQuery('?mode='+mode).mode, mode);
+  assert.deepEqual(configurationFromQuery('?mode=independent&scenario=plans&embed=1&response=secret&phase=review'), {mode:'independent',scenarioId:'plans',embedded:true});
+  assert.equal(configurationFromQuery('?embed=yes').embedded, false);
+  assert.throws(() => configurationFromQuery('?mode=toString'));
   assert.throws(() => configurationFromQuery('?scenario=unknown'));
-  assert.deepEqual(configurationFromQuery('?mode=scaffolding&scenario=plans&response=secret&phase=review'), {mode:'scaffolding', scenarioId:'plans'});
+  assert.throws(() => createSession('invalid', 'team'));
 });
 
-test('ordered local events preserve prior state, reject invalid clocks, and omit free text', () => {
-  const initial = createSession('scaffolding', 'team', 1000);
-  const next = submitAssisted(initial, 'This fictional reply may be ambiguous.', 1010);
-  assert.equal(initial.events.length, 1);
-  assert.deepEqual(next.events.map(e => e.sequence), [1, 2]);
-  assert.equal(next.events[1].payload.stepId, 'uncertainty');
-  assert.ok(!JSON.stringify(next.events).includes('This fictional reply'));
-  assert.throws(() => submitAssisted(next, 'A valid next answer.', 1009));
-  assert.throws(() => submitAssisted(next, 'A valid next answer.', NaN));
-  assert.throws(() => createSession('scaffolding', 'team', Infinity));
-  assert.equal(next.step, 1);
-});
-
-test('invalid mode, policy version, phase and step cannot bypass withdrawal', () => {
-  const initial = createSession('scaffolding', 'team');
-  for (const changed of [{mode:'unknown'}, {policyVersion:'future'}, {step:6}, {phase:'transfer'}])
-    assert.throws(() => view({...initial, ...changed}));
-  assert.equal(initial.phase, 'assistance');
-});
-
-test('a completed trace records withdrawal before transfer and returns detached event objects', () => {
-  const assisted = scaffold();
-  const finished = submitUnaided(withdrawAssistance(assisted), 'Can we find another time?');
-  const trace = implementationTrace(finished);
-  assert.deepEqual(trace.events.slice(-3).map(e => e.type), ['assistance_completed','assistance_withdrawn','transfer_submitted']);
+test('records, review objects and event traces are detached from this page and another session', () => {
+  const state = submitUnaided(beginTransfer(toWithdrawal('scaffolding'), 1050), 'A new reply.', 1060);
+  const exported = record(state), review = view(state), trace = implementationTrace(state);
+  exported.reflections[0].text = 'edited';
+  exported.events[0].payload.policyId = 'edited';
+  review.reflections[0].text = 'edited';
+  review.strategy.definition = 'edited';
   trace.events[0].payload.policyId = 'edited';
-  assert.equal(finished.events[0].payload.policyId, 'guided-judgment');
-  assert.ok(!JSON.stringify(trace).includes('Can we find another time?'));
+  assert.notEqual(state.reflections[0].text, 'edited');
+  assert.equal(state.events[0].payload.policyId, 'guided-judgment');
+  assert.notEqual(view(state).strategy.definition, 'edited');
+  assert.equal(createSession('scaffolding','team').reflections.length, 0);
+});
+
+test('ordered minimal events omit free text and reject invalid or decreasing clocks', () => {
+  const initial = createSession('scaffolding', 'team', 1000);
+  const next = submitInitial(initial, firstText, 1010);
+  assert.equal(initial.events.length, 1);
+  assert.deepEqual(next.events.map(e => e.sequence), [1,2]);
+  assert.deepEqual(next.events.at(-1).payload, {characters:firstText.length});
+  assert.ok(!JSON.stringify(next.events).includes(firstText));
+  for (const invalid of [1009,NaN,Infinity]) assert.throws(() => submitReflection(next,'Valid reflection.',invalid));
+  assert.throws(() => createSession('independent','team',Infinity));
+  const completed = toWithdrawal('scaffolding');
+  assert.deepEqual(completed.events.map(e=>e.sequence), completed.events.map((_,i)=>i+1));
+  assert.ok(!JSON.stringify(completed.events).includes('My own reflection'));
+});
+
+test('invalid policy version, phase and reflection sequence are rejected', () => {
+  const s = createSession('scaffolding','team');
+  for (const changed of [{mode:'unknown'},{policyVersion:'future'},{phase:'unrecognized'},{step:5},{phase:'transfer'}]) assert.throws(() => view({...s,...changed}));
+  const started = submitInitial(s,firstText);
+  assert.throws(() => view({...started,phase:'strategy'}));
+  assert.throws(() => view({...started,step:1,reflections:[{id:'response',text:'Wrong sequence.'}]}));
 });

@@ -7,7 +7,9 @@ I study how artificial social actors reshape human judgment, relationships, and 
 ## Start here
 
 - [Question-led portfolio](https://xuechuzhang.github.io/): mechanisms, empirical evidence, future study, and community extension.
-- [Scaffolding AI — Prototype 02](https://xuechuzhang.github.io/scaffolding.html): versioned substitution/six-step scaffolding policies, withdrawal, a novel unaided situation, and an inspectable local event trace.
+- [Scaffolding AI — Prototype 02](https://xuechuzhang.github.io/scaffolding.html): three authored policies, initial interpretation, strategy selection, own response, withdrawal, a novel unaided situation, and a local record.
+- [Shared Actors project](https://xuechuzhang.github.io/shared-actors.html) · [Impact and evidence provenance](https://xuechuzhang.github.io/impact.html)
+- [11 October audit, implementation and verification](docs/implementation-oct11.md)
 - [Prototype 02 README and proposed evaluation](scaffolding/README.md)
 - [Research + Invention audit, technical decisions, and file plan](docs/invention-upgrade.md)
 - [Earlier narrative audit](docs/narrative-upgrade.md)
@@ -37,6 +39,8 @@ node --check scaffolding/app.mjs
 node --check scaffolding/preview.mjs
 node --check scaffolding/policies.mjs
 python3 scripts/render-research.py --check
+python3 scripts/render-impact.py --check
+node --check assets/build-embed.mjs
 python3 tests/check-site.py
 ```
 
@@ -50,6 +54,6 @@ The research question and temporal extension are from Xuechu's described work wi
 
 ## Pages and deployment
 
-Main navigation remains Home, Research, Publications, About, and CV. `prototype.html` and `scaffolding.html` are linked project subpages, not additional main-navigation items. The website is static HTML/CSS/JavaScript; `.nojekyll` prevents unwanted Jekyll processing. GitHub Pages publishes from `main` at `/(root)`.
+Main navigation remains Home, Research, Publications, About, and CV. `prototype.html`, `scaffolding.html`, `shared-actors.html` and `impact.html` are linked project subpages, not additional main-navigation items. Home includes the same working Prototype 02 in a lazy-loaded iframe. Reach records come from `assets/content/impact.json`; self-reported cumulative views are not participant counts or measured benefits. The website is static HTML/CSS/JavaScript; `.nojekyll` prevents unwanted Jekyll processing. GitHub Pages publishes from `main` at `/(root)`.
 
 The repository is the source for the GitHub Pages website. The earlier ChatGPT-hosted website is a separate snapshot and is not automatically updated by commits here.

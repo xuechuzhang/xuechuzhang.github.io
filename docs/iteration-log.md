@@ -61,3 +61,15 @@ These are implementation/design decisions, not participant feedback. Source chec
 - The trace could reveal prior assistance during transfer. The transfer whitelist and UI both withhold it until review. Reset/navigation clearing prevents visible progress resurfacing from the browser back cache.
 - A heavyweight model/backend migration would not resolve the unvalidated manipulation. Authored scripts were retained, with future model adapters and multi-user infrastructure documented as future work.
 - Code was developed with Codex assistance. These are implementation decisions, not participant feedback or invented failures. Source and live observations are recorded separately in verification.
+
+
+## 11 October 2026 — Three-mode build and evidence provenance
+
+- Audit found a functioning two-mode system but no initial interpretation, explicit strategy, or independent reference. v0.3.0 adds these and separates five reflections from writing the owned response. This makes the manipulation inspectable; time, effort and practice remain unmatched.
+- Home’s small policy preview previously depended on a first-state assumption. It now uses an explicit authored policy-entry function without inventing a visitor’s initial answer or event record.
+- A lazy-loaded iframe runs the actual prototype directly in the narrative. Width changes retain the same session; the 390px preview is explicitly a desktop-frame layout check, not a physical-device test.
+- Shared Actors and Impact get linked project pages while the five primary navigation entries and protected content remain intact. Norms and group language are future research questions, not implemented measures or effects.
+- Impact records retain their source and type. Existing self-reported views are not converted into participants, unique audience, or evaluated benefits; a missing guide/post URL is not replaced by an invented one.
+- The first local integrity run passed 24 engine tests and both evidence checks; it reported the new report link missing before the report was written. That dependency was supplied before publication.
+
+These are observed implementation decisions and software checks, not human feedback. The current verification report records live observations separately.
