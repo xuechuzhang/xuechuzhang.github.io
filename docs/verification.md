@@ -149,3 +149,16 @@ The GitHub Pages workflow for implementation commit `b19365a799c9840f12494908fca
 Automation limitation: two semantic pointer attempts on the last reflection did not advance the visible stage. Keyboard Enter and a native click on the visibly unobstructed button both completed that transition. The successful final step was observed through the interface; this limited pass does not establish uniform automation or cross-browser behavior.
 
 These are agent-operated software/interface checks. Human usability feedback, manipulation validation, learning, repeated exposure, and human–human spillover remain untested. Mobile and screen-reader review were not performed. Both prototypes still use authored scripts with page-local memory, not a connected model, authenticated multi-user service, or persistent study backend.
+
+
+## 11 October 2026 — Three-mode build and dedicated evidence pages
+
+Implementation: `0e8d6ba4a8aee8d5bc7147dd38b4fd4da317c285`; GitHub Pages run `38168426855` completed successfully. [Current detailed report](implementation-oct11.md) documents every major change, exact files, behavior, evidence and limitation.
+
+- 24 automated checks passed (9 shared-character, 15 communication-policy), covering all three modes and two scenarios, required readings/strategies, guarded phases and input bounds, detached records, minimal events and the transfer whitelist.
+- Nine HTML pages / 246 local/artifact links and anchors passed. Protected empirical cases, About/Publications/CV/PDF and the original navigation script remain intact. Both source-backed renderers passed; all research SVGs parsed; native module syntax passed.
+- Public desktop Chrome: all three complete Prototype 02 routes reached review. Empty input/strategy errors blocked progress. The unaided screen had no earlier history and an empty hidden trace. Own responses and schema v3 were observed in the review; reset/reload cleared local text.
+- Home’s actual iframe retained typed text and completed the scaffold route in its up-to-390px viewport. Content client/scroll width were both 373px (iframe 388px inside its 390px bordered wrapper); no horizontal overflow. Returning to wide view retained review. This is not a physical-mobile compatibility test.
+- New Shared Actors and Impact pages opened through live project links. Updated/new SVG diagrams were visually inspected. Existing video loaded at readyState 4, duration 42s; continuous playback and captions were not retested. Four impact records and explicit self-reported reach limits were visible.
+
+These are agent-operated software/interface checks, not participant feedback or behavioral evidence. Physical mobile, other browsers, screen readers, real multi-user administration, data-collection security, an LLM, and human learning or group effects remain unverified or unimplemented as specified in the report.
